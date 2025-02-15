@@ -6,4 +6,3 @@ metadata:
 spec:
   interval: 30s
   url: https://charts.bitnami.com/bitnami
----
