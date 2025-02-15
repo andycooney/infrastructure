@@ -4,7 +4,7 @@ metadata:
   name: infastructure
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 30s
   path: ./infastructure/home
   prune: true
   sourceRef:
