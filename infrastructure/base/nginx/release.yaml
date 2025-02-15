@@ -15,4 +15,3 @@ spec:
   interval: 1m0s
   releaseName: nginx
   targetNamespace: nginx
-  interval: 1h # this is for drifting of the helm created resources
