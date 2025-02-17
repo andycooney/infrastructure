@@ -1,0 +1,4 @@
+---
+resources:
+  # Flux-Kustomizations
+  - ./nfs-client-provisioner.yaml
