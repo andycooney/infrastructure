@@ -20,7 +20,7 @@ spec:
       repository: nfs-client-provisioner
       tag: v4.0.2
     nfs:
-      server: "10.0.7.7"
-      path: "/mnt/tank/data/k8s-nfs"
+      server: "172.16.1.10"
+      path: "/appdata"
     storageClass:
       defaultClass: false
