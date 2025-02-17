@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     image:
-      repository: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+      repository: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner
       tag: v4.0.2
     nfs:
       server: "172.16.1.10"
