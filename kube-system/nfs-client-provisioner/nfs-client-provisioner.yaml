@@ -1,48 +1,26 @@
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: nfs-client-provisioner
-provisioner: k8s-sigs.io/nfs-subdir-external-provisioner # or choose another name, must match deployment's env PROVISIONER_NAME'
-parameters:
-  archiveOnDelete: "false"
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: nfs-client-provisioner
-  labels:
-    app: nfs-client-provisioner
-  # replace with namespace where provisioner is deployed
   namespace: kube-system
-# spec:
-  # replicas: 1
-  # strategy:
-  #   type: Recreate
-  # selector:
-  #   matchLabels:
-  #     app: nfs-client-provisioner
-  # template:
-  #   metadata:
-  #     labels:
-  #       app: nfs-client-provisioner
 spec:
-  serviceAccountName: nfs-client-provisioner
-  containers:
-    - name: nfs-client-provisioner
-      image: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
-      volumeMounts:
-        - name: nfs-client-root
-          mountPath: /persistentvolumes
-      env:
-        - name: PROVISIONER_NAME
-          value: k8s-sigs.io/nfs-subdir-external-provisioner
-        - name: NFS_SERVER
-          value: 172.16.1.10
-        - name: NFS_PATH
-          value: /appdata
-  volumes:
-    - name: nfs-client-root
-      nfs:
-        server: 172.16.1.10
-        path: /appdata
+  interval: 5m
+  chart:
+    spec:
+      chart: nfs-subdir-external-provisioner
+      version: 4.0.18
+      sourceRef:
+        kind: HelmRepository
+        name: nfs-client-provisioner
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: nfs-client-provisioner
+      tag: v4.0.2
+    nfs:
+      server: "172.16.1.10"
+      path: "/appdata"
+    storageClass:
+      defaultClass: false
