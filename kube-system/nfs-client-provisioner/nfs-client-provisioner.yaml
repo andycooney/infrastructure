@@ -18,6 +18,7 @@ spec:
   values:
     image:
       repository: nfs-client-provisioner
+      name: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner
       tag: v4.0.2
     nfs:
       server: "172.16.1.10"
