@@ -22,6 +22,6 @@ spec:
       tag: v4.0.2
     nfs:
       server: "172.16.1.10"
-      path: "/appdata"
+      path: "/appdata/k8s/ephemeral"
     storageClass:
       defaultClass: false
