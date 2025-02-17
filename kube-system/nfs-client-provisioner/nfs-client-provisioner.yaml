@@ -16,8 +16,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    image:
-      repository: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner
+    image: 
+      repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
       tag: v4.0
     nfs:
       server: "172.16.1.10"
