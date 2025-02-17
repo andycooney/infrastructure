@@ -21,6 +21,6 @@ spec:
       tag: v4.0
     nfs:
       server: "172.16.1.10"
-      path: "/mnt/qnap/appdata"
+      path: "/appdata"
     storageClass:
       defaultClass: false
