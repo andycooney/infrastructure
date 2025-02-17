@@ -17,8 +17,8 @@ metadata:
   namespace: kube-system
 spec:
   # replicas: 1
-  strategy:
-    type: Recreate
+  # strategy:
+  #   type: Recreate
   selector:
     matchLabels:
       app: nfs-client-provisioner
