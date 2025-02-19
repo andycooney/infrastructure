@@ -1,2 +1,2 @@
 resources:
-  - ./nginx-ingress-controller.yaml
+  - ./ingress-nginx.yaml
