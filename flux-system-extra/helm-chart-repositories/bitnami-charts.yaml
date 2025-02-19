@@ -7,5 +7,5 @@ metadata:
 spec:
   interval: 10m
   url: oci://charts.bitnami.com/bitnami
-  type: OCI
+  type: oci
   timeout: 3m
