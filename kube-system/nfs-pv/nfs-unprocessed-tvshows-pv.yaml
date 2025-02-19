@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-unprocessed-tvshows-pv
+  name: nfs-unprocessed-tvshows-pvc
   namespace: default
 spec:
   accessModes:
