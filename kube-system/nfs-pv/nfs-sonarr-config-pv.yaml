@@ -29,7 +29,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: data
+  storageClassName: sonarr-config
   resources:
     requests:
       storage: 1Mi

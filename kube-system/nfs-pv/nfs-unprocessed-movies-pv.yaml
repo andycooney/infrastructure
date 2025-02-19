@@ -29,7 +29,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: data
+  storageClassName: unprocessed-movies
   resources:
     requests:
       storage: 1Mi
