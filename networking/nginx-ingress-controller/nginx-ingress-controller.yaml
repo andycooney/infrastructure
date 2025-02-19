@@ -7,7 +7,6 @@ spec:
   interval: 30m
   spec:
     releaseName: nginx-ingress-controller
-    version: 9.x
     chartRef:
       kind: OCIRepository
       name: nginx-ingress-controller
