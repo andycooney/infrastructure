@@ -10,7 +10,6 @@ spec:
     kind: OCIRepository
     name: nginx-ingress-controller
     namespace: flux-system
-  interval: 2h
   values:
     controller:
       service:
