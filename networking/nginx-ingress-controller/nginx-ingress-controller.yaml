@@ -9,9 +9,9 @@ spec:
     spec:
       chart: nginx-ingress-controller
       version: 9.x
-      sourceRef:
-        kind: HelmRepository
-        name: bitnami-charts
+      chartRef:
+        kind: OCIRepository
+        name: nginx-ingress-controller
         namespace: flux-system
       interval: 2h
   values:
