@@ -5,13 +5,12 @@ metadata:
   namespace: networking
 spec:
   interval: 30m
-  spec:
-    releaseName: nginx-ingress-controller
-    chartRef:
-      kind: OCIRepository
-      name: nginx-ingress-controller
-      namespace: flux-system
-    interval: 2h
+  releaseName: nginx-ingress-controller
+  chartRef:
+    kind: OCIRepository
+    name: nginx-ingress-controller
+    namespace: flux-system
+  interval: 2h
   values:
     controller:
       service:
