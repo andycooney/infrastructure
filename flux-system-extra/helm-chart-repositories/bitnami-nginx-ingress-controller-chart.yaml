@@ -10,4 +10,4 @@ spec:
     operation: copy
   url: oci://registry-1.docker.io/bitnamicharts/nginx-ingress-controller
   ref:
-    semver: "1.12.x" # check for new patch versions every hour
+    semver: "11.6.x" # check for new patch versions every hour
