@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.0
+      version: 3.7.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -26,23 +26,50 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    image:
-      repository: ghcr.io/onedr0p/sonarr
-      tag: 4.0.13.2932
-
-    env:
-      TZ: "America/New_York"
-      SONARR__INSTANCE_NAME: Sonarr
-      SONARR__PORT: 8989
-      SONARR__APPLICATION_URL: "https://tv.cooney.site"
-      SONARR__LOG_LEVEL: info
-
+    defaultPodOptions:
+      automountServiceAccountToken: false
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        replicas: 1
+        containers:
+          main:
+            image:
+              repository: ghcr.io/onedr0p/sonarr
+              tag: 4.0.13.2932
+              pullPolicy: IfNotPresent
+            env:
+              TZ: America/New_York
+            securityContext:
+              runAsUser: 1000
+              runAsGroup: 1000
+              fsGroup: 1000
+              fsGroupChangePolicy: "OnRootMismatch"
+            resources:
+              requests:
+                memory: 350Mi
+                cpu: 25m
+              limits:
+                memory: 500Mi
     service:
       main:
         ports:
           http:
             port: 8989
-
+    persistence:
+      config:
+        enabled: true
+        # storageClass: sonarr-config
+        existingClaim: nfs-sonarr-config-pvc
+        globalMounts:
+          - path: /config
+      media:
+        enabled: true
+        # storageClass: media-tvshows
+        existingClaim: nfs-media-tvshows-pvc
+        globalMounts:
+         - path: /media/tvshows
     # ingress:
     #   main:
     #     enabled: true
@@ -55,23 +82,3 @@ spec:
     #     tls:
     #       - hosts:
     #         - *host
-
-    persistence:
-      config:
-        enabled: true
-        existingClaim: nfs-sonarr-config-pvc
-      media:
-        enabled: true
-        existingClaim: nfs-media-tvshows-pvc
-
-    podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
-
-    resources:
-      requests:
-        memory: 350Mi
-        cpu: 25m
-      limits:
-        memory: 500Mi
