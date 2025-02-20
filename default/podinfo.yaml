@@ -8,8 +8,7 @@ spec:
   chart:
     spec:
       chart: podinfo
-        spec:
-          version: 1.x.x
+      version: ">=1.0.0"
       sourceRef:
         kind: HelmRepository
         name: flux-system
@@ -21,6 +20,8 @@ spec:
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
     ingress:
+      enabled: true
+      className: nginx
       hosts:
         - host: podinfo.production
           paths:
