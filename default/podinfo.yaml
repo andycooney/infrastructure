@@ -1,12 +1,12 @@
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
+kind: HelmRelease
 metadata:
   name: podinfo
   namespace: flux-system
 spec:
   interval: 30m0s
-  path: ./default/podinfo
+  # path: ./default/podinfo
   prune: true
   retryInterval: 2m0s
   sourceRef:
