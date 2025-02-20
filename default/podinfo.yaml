@@ -8,6 +8,8 @@ spec:
   chart:
     spec:
       chart: podinfo
+        spec:
+          version: 1.x.x
       sourceRef:
         kind: HelmRepository
         name: flux-system
@@ -18,10 +20,9 @@ spec:
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
-    # redis:
-    #   enabled: true
-    #   repository: public.ecr.aws/docker/library/redis
-    #   tag: 7.0.6
     ingress:
-      enabled: true
-      className: nginx
+      hosts:
+        - host: podinfo.production
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
