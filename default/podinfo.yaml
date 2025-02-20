@@ -1,14 +1,15 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: default
 spec:
   releaseName: podinfo
   chart:
     spec:
       chart: podinfo
+      version: ">=1.0.0-alpha"
       sourceRef:
         kind: GitRepository
         name: podinfo
@@ -17,10 +18,8 @@ spec:
     remediation:
       retries: 3
   values:
-    redis:
-      enabled: true
-      repository: public.ecr.aws/docker/library/redis
-      tag: 7.0.6
     ingress:
       enabled: true
       className: nginx
+      hosts:
+       - host: kube.cooney.site
