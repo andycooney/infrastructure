@@ -16,3 +16,4 @@ spec:
       kind: Deployment
       name: nginx-ingress-controller
       namespace: nginx-ingress-controller
+    
