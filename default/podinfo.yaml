@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: podinfo
-      version: ">=1.0.0-alpha"
+      version: ">=1.0.0"
       sourceRef:
         kind: GitRepository
         name: podinfo
