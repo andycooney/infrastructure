@@ -15,14 +15,11 @@ spec:
   targetNamespace: default
   timeout: 3m0s
   wait: true
-  patches:
-    - patch: |-
-        apiVersion: autoscaling/v2
-        kind: HorizontalPodAutoscaler
-        metadata:
-          name: podinfo
-        spec:
-          minReplicas: 3             
-      target:
-        name: podinfo
-        kind: HorizontalPodAutoscaler
+  values:
+    redis:
+      enabled: true
+      repository: public.ecr.aws/docker/library/redis
+      tag: 7.0.6
+    ingress:
+      enabled: true
+      className: nginx
