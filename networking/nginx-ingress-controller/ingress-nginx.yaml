@@ -79,9 +79,8 @@ spec:
     defaultBackend:
       enabled: true
       image:
-        registry: docker.io
-        repository: bitnami/nginx
-        tag: 1.27.3-debian-12-r5
+        repository: ghcr.io/tarampampam/error-pages
+        tag: 3.3.1
       extraEnvs:
         - { name: TEMPLATE_NAME, value: orient }
         - { name: SHOW_DETAILS, value: "false" }
