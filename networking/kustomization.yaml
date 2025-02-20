@@ -1,5 +1,0 @@
-resources:
-  - ./namespace.yaml
-  - ./nginx-ingress-controller
-  - ./kustomization-metallb.yaml
-  - ./metallb-system

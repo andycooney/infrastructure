@@ -1,4 +1,0 @@
-resources:
-  - ./ingress-nginx.yaml
-  - ./kustomization-nginx-ingress-controller.yaml
-  - ./namespace.yaml

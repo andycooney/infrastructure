@@ -1,5 +1,0 @@
-resources:
-  - ./configmap.yaml
-  - ./metallb.yaml
-  - ./namespace.yaml
-  - ./release.yaml
