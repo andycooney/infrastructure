@@ -5,16 +5,17 @@ metadata:
   name: podinfo
   namespace: flux-system
 spec:
-  interval: 30m0s
-  # path: ./default/podinfo
-  prune: true
-  retryInterval: 2m0s
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  timeout: 3m0s
-  wait: true
+  releaseName: podinfo
+  chart:
+    spec:
+      chart: podinfo
+      sourceRef:
+        kind: GitRepository
+        name: podinfo
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
   values:
     redis:
       enabled: true
