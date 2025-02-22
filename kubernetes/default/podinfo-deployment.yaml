@@ -41,3 +41,11 @@ spec:
         kind: Deployment
   values:
     replicaCount: 2
+    ingress:
+      enabled: true
+      className: nginx
+      hosts:
+        - host: kube.cooney.site
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
