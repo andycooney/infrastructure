@@ -1,0 +1,10 @@
+---
+kubernetes:
+  children:
+    controller:
+      hosts:
+        kube01.cooney.site:
+        kuve02.cooney.site:
+        kube03.cooney.site:
+    worker:
+      hosts:

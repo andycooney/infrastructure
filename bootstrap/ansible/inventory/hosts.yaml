@@ -1,0 +1,10 @@
+---
+kubernetes:
+  children:
+    controller:
+      hosts:
+        kube01:
+        kuve02:
+        kube03:
+    worker:
+      hosts:

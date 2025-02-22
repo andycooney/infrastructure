@@ -1,0 +1,178 @@
+2025-02-22 16:37:22,524 p=36003 u=andycooney n=ansible INFO| Starting galaxy role install process
+2025-02-22 16:37:22,820 p=36003 u=andycooney n=ansible INFO| - extracting xanmanning.k3s to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/roles/xanmanning.k3s
+2025-02-22 16:37:22,863 p=36003 u=andycooney n=ansible INFO| - xanmanning.k3s (v3.4.4) was installed successfully
+2025-02-22 16:37:22,863 p=36003 u=andycooney n=ansible INFO| Starting galaxy collection install process
+2025-02-22 16:37:22,943 p=36003 u=andycooney n=ansible INFO| Process install dependency map
+2025-02-22 16:37:22,943 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:23,048 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:23,154 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:23,259 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:23,365 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:23,470 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:23,574 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:23,678 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:23,782 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:23,888 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:23,990 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:24,095 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:24,201 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:24,303 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:24,405 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:24,510 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:24,612 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:24,718 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:24,820 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:24,924 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:25,029 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:25,135 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:25,240 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:25,342 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:25,446 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:25,546 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:25,651 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:25,758 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:25,863 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:25,967 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:26,071 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:26,176 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:26,279 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:26,379 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:26,483 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:26,587 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:26,688 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:26,792 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:26,895 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:26,999 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:27,105 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:27,209 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:27,314 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:27,417 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:27,521 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:27,625 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:27,730 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:27,832 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:27,937 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:28,042 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:28,147 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:28,248 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:28,351 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:28,455 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:28,558 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:28,661 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:28,765 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:28,870 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:28,973 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:29,073 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:29,174 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:29,278 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:29,382 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:29,486 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:29,587 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:29,692 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:29,794 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:29,899 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:30,004 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:30,109 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:30,214 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:30,315 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:30,420 p=36003 u=andycooney n=ansible INFO| Starting collection install process
+2025-02-22 16:37:30,421 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:30,525 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:30,631 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:30,650 p=36003 u=andycooney n=ansible INFO| Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/ansible-posix-2.0.0.tar.gz to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/tmp/ansible-local-360038x2_8lwt/tmpffachurv/ansible-posix-2.0.0-3dalmbuv
+2025-02-22 16:37:30,736 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:30,838 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:30,944 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:31,048 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:31,154 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:31,259 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:31,364 p=36003 u=andycooney n=ansible INFO| Installing 'ansible.posix:2.0.0' to '/Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/galaxy/ansible_collections/ansible/posix'
+2025-02-22 16:37:31,364 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:31,467 p=36003 u=andycooney n=ansible INFO| ansible.posix:2.0.0 was installed successfully
+2025-02-22 16:37:31,467 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:31,568 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:31,671 p=36003 u=andycooney n=ansible INFO| Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/ansible-utils-5.1.2.tar.gz to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/tmp/ansible-local-360038x2_8lwt/tmpffachurv/ansible-utils-5.1.2-du5aelu7
+2025-02-22 16:37:31,673 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:31,776 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:31,880 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:31,986 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:32,086 p=36003 u=andycooney n=ansible INFO| Installing 'ansible.utils:5.1.2' to '/Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/galaxy/ansible_collections/ansible/utils'
+2025-02-22 16:37:32,086 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:32,187 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:32,292 p=36003 u=andycooney n=ansible INFO| ansible.utils:5.1.2 was installed successfully
+2025-02-22 16:37:32,292 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:32,397 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:32,500 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:32,605 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:32,711 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:32,814 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:32,915 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:33,020 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:33,122 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:33,224 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:33,330 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:33,430 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:33,533 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:33,636 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:33,739 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:33,843 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:33,949 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:34,054 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:34,160 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:34,265 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:34,367 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:34,468 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:34,573 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:34,678 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:34,782 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:34,884 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:34,990 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:35,095 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:35,201 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:35,304 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:35,407 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:35,511 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:35,616 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:35,717 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:35,820 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:35,851 p=36003 u=andycooney n=ansible INFO| Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-general-10.3.1.tar.gz to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/tmp/ansible-local-360038x2_8lwt/tmpffachurv/community-general-10.3.1-368rd3nw
+2025-02-22 16:37:35,923 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:36,024 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:36,125 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:36,230 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:36,332 p=36003 u=andycooney n=ansible INFO| Installing 'community.general:10.3.1' to '/Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/galaxy/ansible_collections/community/general'
+2025-02-22 16:37:36,332 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:36,437 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:36,542 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:36,643 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:36,748 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:36,853 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:36,958 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:37,061 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:37,163 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:37,268 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:37,372 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:37,475 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:37,580 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:37,680 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:37,781 p=36003 u=andycooney n=ansible INFO| community.general:10.3.1 was installed successfully
+2025-02-22 16:37:37,781 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:37,887 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:37,904 p=36003 u=andycooney n=ansible INFO| Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-sops-2.0.2.tar.gz to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/tmp/ansible-local-360038x2_8lwt/tmpffachurv/community-sops-2.0.2-xo2uw49v
+2025-02-22 16:37:37,992 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:38,095 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:38,198 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:38,301 p=36003 u=andycooney n=ansible INFO| Installing 'community.sops:2.0.2' to '/Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/galaxy/ansible_collections/community/sops'
+2025-02-22 16:37:38,301 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:38,403 p=36003 u=andycooney n=ansible INFO| community.sops:2.0.2 was installed successfully
+2025-02-22 16:37:38,403 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:38,508 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:38,613 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:38,647 p=36003 u=andycooney n=ansible INFO| Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/kubernetes-core-5.1.0.tar.gz to /Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/tmp/ansible-local-360038x2_8lwt/tmpffachurv/kubernetes-core-5.1.0-vj5mqkr1
+2025-02-22 16:37:38,715 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:38,821 p=36003 u=andycooney n=ansible INFO| /
+2025-02-22 16:37:38,924 p=36003 u=andycooney n=ansible INFO| -
+2025-02-22 16:37:39,027 p=36003 u=andycooney n=ansible INFO| Installing 'kubernetes.core:5.1.0' to '/Users/andycooney/OneDrive - Redwing Consulting/VSCode/homelab-gitops-k3s/ansible/galaxy/ansible_collections/kubernetes/core'
+2025-02-22 16:37:39,027 p=36003 u=andycooney n=ansible INFO| \
+2025-02-22 16:37:39,128 p=36003 u=andycooney n=ansible INFO| |
+2025-02-22 16:37:39,233 p=36003 u=andycooney n=ansible INFO| kubernetes.core:5.1.0 was installed successfully
