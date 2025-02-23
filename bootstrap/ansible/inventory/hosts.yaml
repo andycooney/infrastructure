@@ -3,8 +3,8 @@ kubernetes:
   children:
     controller:
       hosts:
-        kube01:
-        kuve02:
-        kube03:
+        kube01.cooney.site:
+        kube02.cooney.site:
+        kube03.cooney.site:
     worker:
       hosts:

@@ -120,12 +120,12 @@
             state: present
           tags: smartmontools
 
-        - name: Enable SMART on OS disks
-          command: smartctl -s on /dev/{{ item }}
-          with_items:
-            - nvme0
-          register: smart_enable_os
-          changed_when: "'SMART is already enabled' not in smart_enable_os.stdout"
+        # - name: Enable SMART on OS disks
+        #   command: smartctl -s on /dev/{{ item }}
+        #   with_items:
+        #     - sdb
+        #   register: smart_enable_os
+        #   changed_when: "'SMART is already enabled' not in smart_enable_os.stdout"
 
         - name: Enable SMART on Ceph disks
           when: ceph_drives | default([]) | length > 0

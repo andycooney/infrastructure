@@ -176,3 +176,416 @@
 2025-02-22 16:37:39,027 p=36003 u=andycooney n=ansible INFO| \
 2025-02-22 16:37:39,128 p=36003 u=andycooney n=ansible INFO| |
 2025-02-22 16:37:39,233 p=36003 u=andycooney n=ansible INFO| kubernetes.core:5.1.0 was installed successfully
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|   hosts (6):
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kube01
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kuve02
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kube03
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kube01.cooney.site
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kuve02.cooney.site
+2025-02-22 18:36:02,401 p=38618 u=andycooney n=ansible INFO|     kube03.cooney.site
+2025-02-22 18:37:34,426 p=38636 u=andycooney n=ansible ERROR| ERROR! error with file /Users/andycooney/source/home_sys/bootstrap/ansible/inventory/group_vars/kubernetes/secrets.sops.yaml: CouldNotRetrieveKey exited with code 128: Failed to get the data key required to decrypt the SOPS file.
+
+Group 0: FAILED
+  age1a7nyvwztvzudynvx92z6tegdxcmudhdh7fh6ty6sqs8n4gh2lelqkqk9aa: FAILED
+    - | failed to create reader for decrypting sops data key with
+      | age: no identity matched any of the recipients
+
+Recovery failed because no master key was able to decrypt the file. In
+order for SOPS to recover the file, at least one key has to be successful,
+but none were.
+
+2025-02-22 18:40:23,213 p=38681 u=andycooney n=ansible INFO|   hosts (3):
+2025-02-22 18:40:23,213 p=38681 u=andycooney n=ansible INFO|     kube01.cooney.site
+2025-02-22 18:40:23,213 p=38681 u=andycooney n=ansible INFO|     kuve02.cooney.site
+2025-02-22 18:40:23,213 p=38681 u=andycooney n=ansible INFO|     kube03.cooney.site
+2025-02-22 18:42:30,626 p=38709 u=andycooney n=ansible ERROR| ERROR! error with file /Users/andycooney/source/home_sys/bootstrap/ansible/inventory/group_vars/kubernetes/secrets.sops.yaml: CouldNotRetrieveKey exited with code 128: Failed to get the data key required to decrypt the SOPS file.
+
+Group 0: FAILED
+  age1a7nyvwztvzudynvx92z6tegdxcmudhdh7fh6ty6sqs8n4gh2lelqkqk9aa: FAILED
+    - | failed to create reader for decrypting sops data key with
+      | age: no identity matched any of the recipients
+
+Recovery failed because no master key was able to decrypt the file. In
+order for SOPS to recover the file, at least one key has to be successful,
+but none were.
+
+2025-02-22 18:55:31,189 p=38978 u=andycooney n=ansible INFO| kube02.cooney.site | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3.12"},"changed": false,"ping": "pong","warnings": ["Platform linux on host kube02.cooney.site is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information."]}
+2025-02-22 18:55:31,199 p=38978 u=andycooney n=ansible INFO| kube03.cooney.site | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3.12"},"changed": false,"ping": "pong","warnings": ["Platform linux on host kube03.cooney.site is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information."]}
+2025-02-22 18:55:31,273 p=38978 u=andycooney n=ansible INFO| kube01.cooney.site | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3.12"},"changed": false,"ping": "pong","warnings": ["Platform linux on host kube01.cooney.site is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information."]}
+2025-02-22 19:00:43,678 p=39070 u=andycooney n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the the option `result_format=yaml` in callback
+ plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from community.general in version 13.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-22 19:00:43,686 p=39070 u=andycooney n=ansible INFO| PLAY [Prepare System] *******************************************************************************************************************************
+2025-02-22 19:00:43,694 p=39070 u=andycooney n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************************
+2025-02-22 19:00:48,423 p=39070 u=andycooney n=ansible INFO| fatal: [kube03.cooney.site]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "kube03.cooney.site". Make sure this host can be reached over ssh: no such identity: /Users/andycooney/.ssh/id_ed25519: No such file or directory
+    andycooney@kube03.cooney.site: Permission denied (publickey).
+  unreachable: true
+2025-02-22 19:00:48,432 p=39070 u=andycooney n=ansible INFO| fatal: [kube01.cooney.site]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "kube01.cooney.site". Make sure this host can be reached over ssh: no such identity: /Users/andycooney/.ssh/id_ed25519: No such file or directory
+    andycooney@kube01.cooney.site: Permission denied (publickey).
+  unreachable: true
+2025-02-22 19:00:48,432 p=39070 u=andycooney n=ansible INFO| fatal: [kube02.cooney.site]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "kube02.cooney.site". Make sure this host can be reached over ssh: no such identity: /Users/andycooney/.ssh/id_ed25519: No such file or directory
+    andycooney@kube02.cooney.site: Permission denied (publickey).
+  unreachable: true
+2025-02-22 19:00:48,433 p=39070 u=andycooney n=ansible INFO| PLAY RECAP ******************************************************************************************************************************************
+2025-02-22 19:00:48,433 p=39070 u=andycooney n=ansible INFO| kube01.cooney.site         : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:00:48,433 p=39070 u=andycooney n=ansible INFO| kube02.cooney.site         : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:00:48,433 p=39070 u=andycooney n=ansible INFO| kube03.cooney.site         : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:03:15,003 p=39166 u=andycooney n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the the option `result_format=yaml` in callback
+ plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from community.general in version 13.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-22 19:03:15,012 p=39166 u=andycooney n=ansible INFO| PLAY [Prepare System] *******************************************************************************************************************************
+2025-02-22 19:03:15,019 p=39166 u=andycooney n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************************
+2025-02-22 19:03:15,829 p=39166 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:03:15,831 p=39166 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:03:15,966 p=39166 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:03:15,971 p=39166 u=andycooney n=ansible INFO| TASK [Pausing for 5 seconds...] *********************************************************************************************************************
+2025-02-22 19:03:15,980 p=39166 u=andycooney n=ansible INFO| Pausing for 5 seconds
+2025-02-22 19:03:15,980 p=39166 u=andycooney n=ansible INFO| (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2025-02-22 19:03:20,991 p=39166 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:03:21,000 p=39166 u=andycooney n=ansible INFO| TASK [Locale | Set timezone] ************************************************************************************************************************
+2025-02-22 19:03:21,294 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:21,321 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:21,389 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:21,395 p=39166 u=andycooney n=ansible INFO| TASK [Packages | Install] ***************************************************************************************************************************
+2025-02-22 19:03:31,714 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:31,985 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:36,486 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:36,496 p=39166 u=andycooney n=ansible INFO| TASK [Network Configuration | Set hostname] *********************************************************************************************************
+2025-02-22 19:03:37,004 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:37,006 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:37,068 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:37,074 p=39166 u=andycooney n=ansible INFO| TASK [Network Configuration | Update hosts] *********************************************************************************************************
+2025-02-22 19:03:37,597 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:37,599 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:37,661 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:37,665 p=39166 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove immutable flag from /etc/resolv.conf] **************************************************************************
+2025-02-22 19:03:37,873 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:37,881 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:37,937 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:37,942 p=39166 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove /etc/resolv.conf] **********************************************************************************************
+2025-02-22 19:03:38,103 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:38,107 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:38,152 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:38,156 p=39166 u=andycooney n=ansible INFO| TASK [Network Configuration | Add custom /etc/resolv.conf] ******************************************************************************************
+2025-02-22 19:03:38,563 p=39166 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:03:38,566 p=39166 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:03:38,687 p=39166 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:03:38,691 p=39166 u=andycooney n=ansible INFO| TASK [Ensure smartmontools is installed] ************************************************************************************************************
+2025-02-22 19:03:39,228 p=39166 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:03:39,248 p=39166 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:03:39,391 p=39166 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:03:39,400 p=39166 u=andycooney n=ansible INFO| TASK [Enable SMART on OS disks] *********************************************************************************************************************
+2025-02-22 19:03:39,618 p=39166 u=andycooney n=ansible INFO| failed: [kube03.cooney.site] (item=nvme0) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/nvme0
+  delta: '0:00:00.010756'
+  end: '2025-02-22 19:03:39.610811'
+  item: nvme0
+  msg: non-zero return code
+  rc: 2
+  start: '2025-02-22 19:03:39.600055'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    Smartctl open device: /dev/nvme0 failed: No such device
+  stdout_lines: <omitted>
+2025-02-22 19:03:39,619 p=39166 u=andycooney n=ansible INFO| failed: [kube02.cooney.site] (item=nvme0) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/nvme0
+  delta: '0:00:00.012068'
+  end: '2025-02-22 19:03:39.613769'
+  item: nvme0
+  msg: non-zero return code
+  rc: 2
+  start: '2025-02-22 19:03:39.601701'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    Smartctl open device: /dev/nvme0 failed: No such device
+  stdout_lines: <omitted>
+2025-02-22 19:03:39,676 p=39166 u=andycooney n=ansible INFO| failed: [kube01.cooney.site] (item=nvme0) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/nvme0
+  delta: '0:00:00.016417'
+  end: '2025-02-22 19:03:39.663432'
+  item: nvme0
+  msg: non-zero return code
+  rc: 2
+  start: '2025-02-22 19:03:39.647015'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    Smartctl open device: /dev/nvme0 failed: No such device
+  stdout_lines: <omitted>
+2025-02-22 19:03:39,678 p=39166 u=andycooney n=ansible INFO| PLAY RECAP ******************************************************************************************************************************************
+2025-02-22 19:03:39,678 p=39166 u=andycooney n=ansible INFO| kube01.cooney.site         : ok=10   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:03:39,679 p=39166 u=andycooney n=ansible INFO| kube02.cooney.site         : ok=9    changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:03:39,679 p=39166 u=andycooney n=ansible INFO| kube03.cooney.site         : ok=9    changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:52:50,953 p=40668 u=andycooney n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the the option `result_format=yaml` in callback
+ plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from community.general in version 13.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-22 19:52:50,961 p=40668 u=andycooney n=ansible INFO| PLAY [Prepare System] *******************************************************************************************************************************
+2025-02-22 19:52:50,969 p=40668 u=andycooney n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************************
+2025-02-22 19:52:55,196 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:52:55,226 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:52:55,486 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:52:55,492 p=40668 u=andycooney n=ansible INFO| TASK [Pausing for 5 seconds...] *********************************************************************************************************************
+2025-02-22 19:52:55,500 p=40668 u=andycooney n=ansible INFO| Pausing for 5 seconds
+2025-02-22 19:52:55,500 p=40668 u=andycooney n=ansible INFO| (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2025-02-22 19:53:00,513 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:00,523 p=40668 u=andycooney n=ansible INFO| TASK [Locale | Set timezone] ************************************************************************************************************************
+2025-02-22 19:53:00,811 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:53:00,817 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:53:00,884 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:00,889 p=40668 u=andycooney n=ansible INFO| TASK [Packages | Install] ***************************************************************************************************************************
+2025-02-22 19:53:01,564 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:53:01,564 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:53:01,691 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:01,698 p=40668 u=andycooney n=ansible INFO| TASK [Network Configuration | Set hostname] *********************************************************************************************************
+2025-02-22 19:53:02,139 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:53:02,142 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:53:02,262 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:02,272 p=40668 u=andycooney n=ansible INFO| TASK [Network Configuration | Update hosts] *********************************************************************************************************
+2025-02-22 19:53:02,718 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:53:02,724 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:53:02,784 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:02,789 p=40668 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove immutable flag from /etc/resolv.conf] **************************************************************************
+2025-02-22 19:53:02,963 p=40668 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:53:02,971 p=40668 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:53:03,009 p=40668 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:53:03,013 p=40668 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove /etc/resolv.conf] **********************************************************************************************
+2025-02-22 19:53:03,174 p=40668 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:53:03,180 p=40668 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:53:03,224 p=40668 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:53:03,229 p=40668 u=andycooney n=ansible INFO| TASK [Network Configuration | Add custom /etc/resolv.conf] ******************************************************************************************
+2025-02-22 19:53:03,688 p=40668 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:53:03,690 p=40668 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:53:03,753 p=40668 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:53:03,757 p=40668 u=andycooney n=ansible INFO| TASK [Ensure smartmontools is installed] ************************************************************************************************************
+2025-02-22 19:53:04,318 p=40668 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:53:04,324 p=40668 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:53:04,469 p=40668 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:53:04,481 p=40668 u=andycooney n=ansible INFO| TASK [Enable SMART on OS disks] *********************************************************************************************************************
+2025-02-22 19:53:04,709 p=40668 u=andycooney n=ansible INFO| failed: [kube02.cooney.site] (item=sdb) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/sdb
+  delta: '0:00:00.012038'
+  end: '2025-02-22 19:53:04.696118'
+  item: sdb
+  msg: non-zero return code
+  rc: 4
+  start: '2025-02-22 19:53:04.684080'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    === START OF ENABLE/DISABLE COMMANDS SECTION ===
+    unable to fetch IEC (SMART) mode page [unsupported field in scsi command]
+    A mandatory SMART command failed: exiting. To continue, add one or more '-T permissive' options.
+  stdout_lines: <omitted>
+2025-02-22 19:53:04,714 p=40668 u=andycooney n=ansible INFO| failed: [kube03.cooney.site] (item=sdb) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/sdb
+  delta: '0:00:00.014853'
+  end: '2025-02-22 19:53:04.699125'
+  item: sdb
+  msg: non-zero return code
+  rc: 4
+  start: '2025-02-22 19:53:04.684272'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    === START OF ENABLE/DISABLE COMMANDS SECTION ===
+    unable to fetch IEC (SMART) mode page [unsupported field in scsi command]
+    A mandatory SMART command failed: exiting. To continue, add one or more '-T permissive' options.
+  stdout_lines: <omitted>
+2025-02-22 19:53:04,767 p=40668 u=andycooney n=ansible INFO| failed: [kube01.cooney.site] (item=sdb) => changed=true 
+  ansible_loop_var: item
+  cmd:
+  - smartctl
+  - -s
+  - 'on'
+  - /dev/sdb
+  delta: '0:00:00.018631'
+  end: '2025-02-22 19:53:04.751596'
+  item: sdb
+  msg: non-zero return code
+  rc: 4
+  start: '2025-02-22 19:53:04.732965'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-53-generic] (local build)
+    Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org
+  
+    === START OF ENABLE/DISABLE COMMANDS SECTION ===
+    unable to fetch IEC (SMART) mode page [unsupported field in scsi command]
+    A mandatory SMART command failed: exiting. To continue, add one or more '-T permissive' options.
+  stdout_lines: <omitted>
+2025-02-22 19:53:04,769 p=40668 u=andycooney n=ansible INFO| PLAY RECAP ******************************************************************************************************************************************
+2025-02-22 19:53:04,769 p=40668 u=andycooney n=ansible INFO| kube01.cooney.site         : ok=10   changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:53:04,769 p=40668 u=andycooney n=ansible INFO| kube02.cooney.site         : ok=9    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:53:04,769 p=40668 u=andycooney n=ansible INFO| kube03.cooney.site         : ok=9    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 19:56:30,143 p=40847 u=andycooney n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the the option `result_format=yaml` in callback
+ plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from community.general in version 13.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-22 19:56:30,149 p=40847 u=andycooney n=ansible INFO| PLAY [Prepare System] *******************************************************************************************************************************
+2025-02-22 19:56:30,156 p=40847 u=andycooney n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************************************************
+2025-02-22 19:56:30,949 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:30,951 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:31,035 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:31,039 p=40847 u=andycooney n=ansible INFO| TASK [Pausing for 5 seconds...] *********************************************************************************************************************
+2025-02-22 19:56:31,047 p=40847 u=andycooney n=ansible INFO| Pausing for 5 seconds
+2025-02-22 19:56:31,048 p=40847 u=andycooney n=ansible INFO| (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2025-02-22 19:56:36,060 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:36,069 p=40847 u=andycooney n=ansible INFO| TASK [Locale | Set timezone] ************************************************************************************************************************
+2025-02-22 19:56:36,327 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:36,348 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:36,418 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:36,423 p=40847 u=andycooney n=ansible INFO| TASK [Packages | Install] ***************************************************************************************************************************
+2025-02-22 19:56:37,076 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:37,080 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:37,248 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:37,258 p=40847 u=andycooney n=ansible INFO| TASK [Network Configuration | Set hostname] *********************************************************************************************************
+2025-02-22 19:56:37,698 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:37,699 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:37,816 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:37,824 p=40847 u=andycooney n=ansible INFO| TASK [Network Configuration | Update hosts] *********************************************************************************************************
+2025-02-22 19:56:38,274 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:38,278 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:38,327 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:38,332 p=40847 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove immutable flag from /etc/resolv.conf] **************************************************************************
+2025-02-22 19:56:38,505 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:38,513 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:38,556 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:38,561 p=40847 u=andycooney n=ansible INFO| TASK [Network Configuration | Remove /etc/resolv.conf] **********************************************************************************************
+2025-02-22 19:56:38,717 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:38,724 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:38,772 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:38,777 p=40847 u=andycooney n=ansible INFO| TASK [Network Configuration | Add custom /etc/resolv.conf] ******************************************************************************************
+2025-02-22 19:56:39,229 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:39,232 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:39,301 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:39,308 p=40847 u=andycooney n=ansible INFO| TASK [Ensure smartmontools is installed] ************************************************************************************************************
+2025-02-22 19:56:39,859 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site]
+2025-02-22 19:56:39,867 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site]
+2025-02-22 19:56:40,027 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site]
+2025-02-22 19:56:40,037 p=40847 u=andycooney n=ansible INFO| TASK [Enable SMART on Ceph disks] *******************************************************************************************************************
+2025-02-22 19:56:40,057 p=40847 u=andycooney n=ansible INFO| skipping: [kube01.cooney.site]
+2025-02-22 19:56:40,061 p=40847 u=andycooney n=ansible INFO| skipping: [kube02.cooney.site]
+2025-02-22 19:56:40,066 p=40847 u=andycooney n=ansible INFO| skipping: [kube03.cooney.site]
+2025-02-22 19:56:40,072 p=40847 u=andycooney n=ansible INFO| TASK [Configure smartd for regular tests] ***********************************************************************************************************
+2025-02-22 19:56:40,487 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:40,501 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:40,643 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:40,647 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Neofetch] **************************************************************************************************************
+2025-02-22 19:56:41,050 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:41,053 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:41,181 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:41,186 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Disable apparmor] ******************************************************************************************************
+2025-02-22 19:56:41,204 p=40847 u=andycooney n=ansible INFO| skipping: [kube01.cooney.site]
+2025-02-22 19:56:41,206 p=40847 u=andycooney n=ansible INFO| skipping: [kube02.cooney.site]
+2025-02-22 19:56:41,212 p=40847 u=andycooney n=ansible INFO| skipping: [kube03.cooney.site]
+2025-02-22 19:56:41,216 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Disable swap] **********************************************************************************************************
+2025-02-22 19:56:41,410 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site] => (item=none)
+2025-02-22 19:56:41,412 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site] => (item=none)
+2025-02-22 19:56:41,466 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site] => (item=none)
+2025-02-22 19:56:41,552 p=40847 u=andycooney n=ansible INFO| ok: [kube02.cooney.site] => (item=swap)
+2025-02-22 19:56:41,560 p=40847 u=andycooney n=ansible INFO| ok: [kube03.cooney.site] => (item=swap)
+2025-02-22 19:56:41,676 p=40847 u=andycooney n=ansible INFO| ok: [kube01.cooney.site] => (item=swap)
+2025-02-22 19:56:41,682 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Create Kernel modules] *************************************************************************************************
+2025-02-22 19:56:42,100 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=br_netfilter)
+2025-02-22 19:56:42,101 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=br_netfilter)
+2025-02-22 19:56:42,208 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=br_netfilter)
+2025-02-22 19:56:42,487 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=ceph)
+2025-02-22 19:56:42,501 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=ceph)
+2025-02-22 19:56:42,728 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=ceph)
+2025-02-22 19:56:42,871 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=ip_vs)
+2025-02-22 19:56:42,896 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=ip_vs)
+2025-02-22 19:56:43,246 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=ip_vs)
+2025-02-22 19:56:43,259 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=ip_vs_rr)
+2025-02-22 19:56:43,294 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=ip_vs_rr)
+2025-02-22 19:56:43,643 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=iptable_mangle)
+2025-02-22 19:56:43,694 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=iptable_mangle)
+2025-02-22 19:56:43,757 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=ip_vs_rr)
+2025-02-22 19:56:44,025 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=iptable_raw)
+2025-02-22 19:56:44,090 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=iptable_raw)
+2025-02-22 19:56:44,263 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=iptable_mangle)
+2025-02-22 19:56:44,408 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=nbd)
+2025-02-22 19:56:44,475 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=nbd)
+2025-02-22 19:56:44,775 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=iptable_raw)
+2025-02-22 19:56:44,793 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=overlay)
+2025-02-22 19:56:44,867 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=overlay)
+2025-02-22 19:56:45,200 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=rbd)
+2025-02-22 19:56:45,292 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=rbd)
+2025-02-22 19:56:45,319 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=nbd)
+2025-02-22 19:56:45,619 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item=xt_socket)
+2025-02-22 19:56:45,688 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item=xt_socket)
+2025-02-22 19:56:45,853 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=overlay)
+2025-02-22 19:56:46,402 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=rbd)
+2025-02-22 19:56:46,961 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item=xt_socket)
+2025-02-22 19:56:46,968 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Reload Kernel modules] *************************************************************************************************
+2025-02-22 19:56:47,517 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:47,583 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:47,712 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:47,719 p=40847 u=andycooney n=ansible INFO| TASK [System Configuration | Sysctl] ****************************************************************************************************************
+2025-02-22 19:56:47,933 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item={'key': 'fs.inotify.max_queued_events', 'value': 65536})
+2025-02-22 19:56:47,939 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item={'key': 'fs.inotify.max_queued_events', 'value': 65536})
+2025-02-22 19:56:47,995 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item={'key': 'fs.inotify.max_queued_events', 'value': 65536})
+2025-02-22 19:56:48,080 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item={'key': 'fs.inotify.max_user_watches', 'value': 524288})
+2025-02-22 19:56:48,087 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item={'key': 'fs.inotify.max_user_watches', 'value': 524288})
+2025-02-22 19:56:48,204 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item={'key': 'fs.inotify.max_user_watches', 'value': 524288})
+2025-02-22 19:56:48,237 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+2025-02-22 19:56:48,251 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+2025-02-22 19:56:48,387 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item={'key': 'net.core.rmem_max', 'value': 2500000})
+2025-02-22 19:56:48,400 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item={'key': 'net.core.rmem_max', 'value': 2500000})
+2025-02-22 19:56:48,416 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+2025-02-22 19:56:48,539 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site] => (item={'key': 'net.core.wmem_max', 'value': 2500000})
+2025-02-22 19:56:48,546 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site] => (item={'key': 'net.core.wmem_max', 'value': 2500000})
+2025-02-22 19:56:48,623 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item={'key': 'net.core.rmem_max', 'value': 2500000})
+2025-02-22 19:56:48,846 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site] => (item={'key': 'net.core.wmem_max', 'value': 2500000})
+2025-02-22 19:56:48,865 p=40847 u=andycooney n=ansible INFO| RUNNING HANDLER [Restart smartd] ********************************************************************************************************************
+2025-02-22 19:56:49,163 p=40847 u=andycooney n=ansible INFO| changed: [kube02.cooney.site]
+2025-02-22 19:56:49,168 p=40847 u=andycooney n=ansible INFO| changed: [kube03.cooney.site]
+2025-02-22 19:56:49,256 p=40847 u=andycooney n=ansible INFO| changed: [kube01.cooney.site]
+2025-02-22 19:56:49,262 p=40847 u=andycooney n=ansible INFO| RUNNING HANDLER [Reboot] ****************************************************************************************************************************

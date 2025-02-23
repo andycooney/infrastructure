@@ -56,7 +56,7 @@ tasks:
   ping:
     desc: Ping specified hosts
     cmds:
-      - ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} --one-line -m 'ping'
+      - ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} -u andy --one-line -m 'ping'
     vars:
       group: '{{ .group | default "kubernetes" }}'
     preconditions:
@@ -64,7 +64,7 @@ tasks:
 
   uptime:
     desc: Uptime of specified hosts
-    cmd: ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} --one-line -a 'uptime'
+    cmd: ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} -u andy --one-line -a 'uptime'
     vars:
       group: '{{ .group | default "kubernetes" }}'
     preconditions:
@@ -73,7 +73,7 @@ tasks:
   prepare:
     desc: Prepare nodes for k3s
     dir: "{{ .ANSIBLE_DIR }}"
-    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
+    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} -u andy {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
     vars:
       group: '{{ .group | default "kubernetes" }}'
       playbook: 'k3s-prepare'
@@ -87,7 +87,7 @@ tasks:
     internal: true
     prompt: This will install k3s ... continue?
     dir: "{{ .ANSIBLE_DIR }}"
-    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
+    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} -u andy {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
     vars:
       group: '{{ .group | default "kubernetes" }}'
       playbook: 'k3s-install'
@@ -101,7 +101,7 @@ tasks:
     desc: Stop k3s process (safely)
     prompt: This will stop k3s (without uninstalling) ... continue?
     dir: "{{ .ANSIBLE_DIR }}"
-    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
+    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} -u andy {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
     vars:
       group: '{{ .group | default "kubernetes" }}'
       playbook: 'k3s-stop'
@@ -114,7 +114,7 @@ tasks:
     internal: true
     desc: Uninstall k3s
     dir: "{{ .ANSIBLE_DIR }}"
-    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
+    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} -u andy {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml --become
     vars:
       group: '{{ .group | default "kubernetes" }}'
       playbook: 'k3s-nuke'
@@ -145,7 +145,7 @@ tasks:
       task ansible:playbook playbook='k3s-install' -- '--become'
     prompt: Run Ansible playbook '{{ .playbook }}' ... continue?
     dir: "{{ .ANSIBLE_DIR }}"
-    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml {{ .CLI_ARGS }}
+    cmd: ansible-playbook -i {{ .ANSIBLE_DIR }}/inventory -l {{ .group }} -u andy {{ .ANSIBLE_DIR }}/playbooks/{{ .playbook }}.yaml {{ .CLI_ARGS }}
     requires:
       vars: ["playbook"]
     vars:
@@ -163,7 +163,7 @@ tasks:
       task ansible:cmd cmd="apt update && apt upgrade -y" -- '--become'
     cmds:
       # - echo "{{ .CLI_ARGS }}"
-      - ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} -m ansible.builtin.shell -a "{{ .cmd }}" {{ .CLI_ARGS }}
+      - ansible -i {{ .ANSIBLE_DIR }}/inventory {{ .group }} -u andy -m ansible.builtin.shell -a "{{ .cmd }}" {{ .CLI_ARGS }}
     requires:
       vars: ["cmd"]
     vars:
