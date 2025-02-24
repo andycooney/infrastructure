@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars_files: ../vault.yaml  # This file contains encrypted variables
+#  vars_files: ../unencrypted.yaml  # This file contains encrypted variables
+  tasks:
+    - name: Use encrypted variable
+      debug:
+        msg: "The secret value is {{ proxmox_user }}"

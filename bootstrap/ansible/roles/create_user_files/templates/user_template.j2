@@ -1,0 +1,28 @@
+#cloud-config
+hostname: {{item.name}}
+manage_etc_hosts: true
+fqdn: {{item.name}}.{{domain_name}}
+user: {{ciuser}}
+ssh_authorized_keys:
+  - {{ciuser_sshkey}}
+chpasswd:
+  expire: False
+users:
+  - default
+package_update: true
+package_upgrade: true
+timezone: {{timezone}}
+packages:
+  - qemu-guest-agent
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
+  - locale-gen {{locale}}
+  - localectl set-locale LANG={{locale}}
+  - chfn -f Ansible {{ansible_user}}
+config:
+    - type: nameserver
+      address:
+      - '172.16.1.1'
+      search:
+      - {{domain_name}}

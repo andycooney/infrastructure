@@ -1,0 +1,38 @@
+---
+# create-cloud-vm.yml
+
+- name: 'Deploy our Cloud-init VMs'
+
+  vars_files:
+    - ../vault.yaml 
+
+  hosts: proxmox
+
+  tasks:
+  - name: Clone cloud-init template
+    community.general.proxmox_kvm:
+      node: pve01
+      vmid: 9000
+      clone: gemini
+      name: kube01
+      api_user: "{{ proxmox_user }}"
+      api_token_id: "{{ proxmox_token_id }}"
+      api_token_secret: "{{ proxmox_token_secret }}"
+      api_host: pve01.cooney.site
+      storage: local-zfs
+      timeout: 90
+      agent: enabled
+      cores: 2
+      memory: 4096
+      full: true
+      newid: 301
+
+  - name: Start VM 
+    community.general.proxmox_kvm:
+      node: pve01
+      name: kube01
+      api_user: "{{ proxmox_user }}"
+      api_token_id: "{{ proxmox_token_id }}"
+      api_token_secret: "{{ proxmox_token_secret }}"
+      api_host: pve01.cooney.site
+      state: started

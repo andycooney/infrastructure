@@ -1,0 +1,11 @@
+kube_cluster:
+  - name: kube01
+    vmid: 301
+    node: pve01
+    image_file: 'noble-server-cloudimg-amd64.img'
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.171/24
+    ipv4_gateway: 172.16.1.1
+    state: new

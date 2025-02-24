@@ -1,0 +1,5 @@
+os_images:
+  - name: ubuntu_24.04
+    image_file: 'noble-server-cloudimg-amd64.img'
+    image_url: 'https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img'
+    image_checksum: 'ad724d50e5ce2dd682453e5485518aa7913d9a23034bcd713ed3fd1b815088b6'
