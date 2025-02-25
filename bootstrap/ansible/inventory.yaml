@@ -1,0 +1,14 @@
+---
+proxmox:
+  hosts:
+    pve01.cooney.site:
+    pve02.cooney.site:
+kubernetes:
+  children:
+    server:
+      hosts:
+        kube01.cooney.site:
+        kube02.cooney.site:
+    agent:
+      hosts:
+        kube03.cooney.site:

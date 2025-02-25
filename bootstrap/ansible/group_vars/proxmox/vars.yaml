@@ -1,7 +1,44 @@
 api_host: '{{inventory_hostname}}'
-drive_storage: VMS
+drive_storage: local-zfs
 drive_format: qcow2
 snippets_storage: local
 snippets_path: '/var/lib/vz/snippets/'
-image_storage: local-zfs
+image_storage: local
 linux_bridge: vmbr0
+os_images:
+  - name: ubuntu_24.04
+    cloud_init_file: 'noble-server-cloudimg-amd64.qcow2'
+    image_url: 'https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img'
+    image_checksum: 'sha256:ad724d50e5ce2dd682453e5485518aa7913d9a23034bcd713ed3fd1b815088b6'
+    state: present
+kube_cluster:
+  - name: kube01
+    vmid: 601
+    node: pve01
+    image_file: noble-server-cloudimg-amd64.qcow2
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.171/24
+    ipv4_gateway: 172.16.1.1
+    state: new
+  - name: kube02
+    vmid: 602
+    node: pve02
+    image_file: noble-server-cloudimg-amd64.qcow2
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.172/24
+    ipv4_gateway: 172.16.1.1
+    state: new
+  - name: kube03
+    vmid: 603
+    node: pve02
+    image_file: noble-server-cloudimg-amd64.qcow2
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.173/24
+    ipv4_gateway: 172.16.1.1
+    state: new

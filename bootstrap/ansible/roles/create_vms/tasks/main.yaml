@@ -18,7 +18,7 @@
       ide2: '{{drive_storage}}:cloudinit'
     ostype: 'l26'
     onboot: 'no'
-    cpu: 'Skylake-Client'
+    cpu: 'host'
     cores: '{{item.cores}}'
     sockets: 1
     memory: '{{item.memory}}'
@@ -27,12 +27,12 @@
     nameservers: '{{ nameservers }}'
     ipconfig:
       ipconfig0: 'ip=dhcp'
-    cicustom: 'user={{snippets_storage}}:snippets/{{item.vmid}}-user.yml'
+    cicustom: 'user={{snippets_storage}}:snippets/{{item.vmid}}-user.yaml'
     agent: 'enabled=1'
     timeout: 700
-  loop: '{{computers}}'
+  loop: '{{kube_cluster}}'
   when: 'item.state == "new"'
-  no_log: yes
+  no_log: no
 
 # Update network settings
 # A custom file would have been preferred to update the network settings but the problem is it includes a MAC address
@@ -49,7 +49,7 @@
       ipconfig0: 'ip={{item.ipv4_address}},gw={{item.ipv4_gateway}}'
     timeout: 60
     update: true
-  loop: '{{computers}}'
+  loop: '{{kube_cluster}}'
   when: (item.state == "new") and
         (item.ipv4mode == 'static')
   no_log: yes
@@ -67,7 +67,7 @@
     size: '32G'
     state: 'resized'
     timeout: 60
-  loop: '{{computers}}'
+  loop: '{{kube_cluster}}'
   when: 'item.state == "new"'
   no_log: yes
 
@@ -81,6 +81,6 @@
     node: '{{item.node}}'
     vmid: '{{item.vmid}}'
     state: 'started'
-  loop: '{{computers}}'
+  loop: '{{kube_cluster}}'
   when: 'item.state == "new"'
   no_log: yes

@@ -3,16 +3,16 @@
   gather_facts: false
   tasks:
 
-  # Create variables files for images and VMs
-  - name: Create Variable Files
-    include_role:
-      name: create_variables_file
-    vars:
-      variable_name: '{{item}}'
-    loop:
-      '{{variable_files}}'
+  # # Create variables files for images and VMs
+  # - name: Create Variable Files
+  #   include_role:
+  #     name: create_variables_file
+  #   vars:
+  #     variable_name: '{{item}}'
+  #   loop:
+  #     '{{variable_files}}'
 
-- hosts: pvenodes
+- hosts: proxmox
   become: true
   gather_facts: false
 
@@ -22,7 +22,7 @@
   # Create cloud-init files
     - create_user_files
 
-- hosts: pvenodes[0]
+- hosts: proxmox[0]
   become: false
   gather_facts: false
 

@@ -1,12 +1,9 @@
 ansible_key_file: './vault_pass'
 project_path: '../ansible'
-image_path: '/var/lib/vz/images/'
+image_path: '/var/lib/vz/images/0/'
 domain_name: 'cooney.site'
 timezone: 'America/New_York'
 locale: 'en_US.UTF-8'
 group_name: proxmox
 nameservers:
   - 172.16.1.1
-variable_files:
- - images
- - vms

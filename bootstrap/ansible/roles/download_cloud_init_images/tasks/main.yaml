@@ -6,7 +6,7 @@
 
 # Download cloud-init images
 - name: Download cloud-init images
-  get_url:
+  get_url: 
     url: '{{item.image_url}}'
     dest: '{{image_path}}{{item.cloud_init_file}}'
     checksum: '{{item.image_checksum}}'
