@@ -1,3 +1,5 @@
+ansible_port: 22
+ansible_user: andy
 ansible_key_file: './vault_pass'
 project_path: '../ansible'
 image_path: '/var/lib/vz/images/0/'

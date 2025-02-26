@@ -1,6 +1,7 @@
 - name: Read in vars files
   ansible.builtin.include_vars:
-    dir: ../group_vars
+    dir: /Users/andycooney/source/home_sys/bootstrap/ansible/group_vars
+  when: 'k3snodes is undefined'
 
 - name: Remove known_hosts
   ansible.builtin.known_hosts:
