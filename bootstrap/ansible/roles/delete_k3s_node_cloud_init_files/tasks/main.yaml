@@ -1,0 +1,8 @@
+# Remove cloud-init file
+- name: Remove cloud-init file
+  become: true
+  file:
+    path: '{{snippets_path}}{{item.vmid}}-user.yaml'
+    state: absent
+  loop: '{{ k3snodes }}'
+  when: 'item.state == "new"'

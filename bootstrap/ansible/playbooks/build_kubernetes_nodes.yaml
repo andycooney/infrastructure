@@ -1,31 +1,27 @@
-- hosts: localhost
+- name: Download images and create cloud-init files
+  hosts: pvenodes
+  become: true
+  roles:
+    - download_cloud_init_images
+    - create_user_files
+
+- name: Create VMs
+  hosts: pvenodes[0]
+  become: false
+  roles:
+    - create_vms
+
+- name: Pause before doing some cleanup of cloud-init files
+  hosts: localhost
   become: false
   gather_facts: false
   tasks:
+    - name: Wait
+      pause:
+        seconds: 30
 
-  # # Create variables files for images and VMs
-  # - name: Create Variable Files
-  #   include_role:
-  #     name: create_variables_file
-  #   vars:
-  #     variable_name: '{{item}}'
-  #   loop:
-  #     '{{variable_files}}'
-
-- hosts: proxmox
+- name: Celanup cloud-init files
+  hosts: pvenodes
   become: true
-  gather_facts: false
-
   roles:
-  # Download cloud-init images
-    - download_cloud_init_images
-  # Create cloud-init files
-    - create_user_files
-
-- hosts: proxmox[0]
-  become: false
-  gather_facts: false
-
-  roles:
-  # Create VMs
-    - create_vms
+    - delete_k3s_node_cloud_init_files

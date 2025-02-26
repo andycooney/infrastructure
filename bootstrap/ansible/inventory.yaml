@@ -1,14 +1,16 @@
 ---
-proxmox:
+pvenodes:
   hosts:
     pve01.cooney.site:
     pve02.cooney.site:
-kubernetes:
+k3s_cluster:
   children:
     server:
       hosts:
         kube01.cooney.site:
         kube02.cooney.site:
+        kube03.cooney.site:
     agent:
       hosts:
-        kube03.cooney.site:
+        kube04.cooney.site:
+        kube05.cooney.site:

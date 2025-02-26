@@ -4,6 +4,6 @@ image_path: '/var/lib/vz/images/0/'
 domain_name: 'cooney.site'
 timezone: 'America/New_York'
 locale: 'en_US.UTF-8'
-group_name: proxmox
+group_name: pvenodes
 nameservers:
   - 172.16.1.1

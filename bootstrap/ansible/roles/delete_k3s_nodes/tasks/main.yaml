@@ -1,0 +1,22 @@
+- name: Stop VM with force
+  community.general.proxmox_kvm:
+    api_user: '{{proxmox_user}}'
+    api_token_id: '{{proxmox_token_id}}'
+    api_token_secret: '{{proxmox_token_secret}}'
+    api_host: '{{proxmox_host}}'
+    node: '{{item.node}}'
+    vmid: '{{item.vmid}}'
+    state: stopped
+    force: true
+    timeout: 30
+  loop: '{{ k3snodes }}'
+
+- name: Remove VM
+  community.general.proxmox_kvm:
+    api_user: '{{proxmox_user}}'
+    api_token_id: '{{proxmox_token_id}}'
+    api_token_secret: '{{proxmox_token_secret}}'
+    api_host: '{{proxmox_host}}'
+    vmid: '{{item.vmid}}'
+    state: absent
+  loop: '{{ k3snodes }}'

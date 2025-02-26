@@ -1,69 +1,17 @@
-- hosts: proxmox
+- hosts: pvenodes
   become: true
-  gather_facts: false
   tasks:
+  roles:
+    - delete_k3s_node_cloud_init_files
 
-  # Remove cloud-init file
-  - name: Remove cloud-init file
-    become: true
-    file:
-      path: '{{snippets_path}}{{item.vmid}}-user.yml'
-      state: absent
-    loop: '{{ kube_cluster }}'
-    when: 'item.state == "new"'
+- hosts: pvenodes[0]
+  become: false
+  tasks:
+  roles:
+    - delete_k3s_nodes
 
-- hosts: proxmox[0]
+- hosts: localhost
   become: false
   gather_facts: false
-  tasks:
-  - name: Stop VM with force
-    community.general.proxmox_kvm:
-      api_user: '{{proxmox_user}}'
-      api_token_id: '{{proxmox_token_id}}'
-      api_token_secret: '{{proxmox_token_secret}}'
-      api_host: '{{proxmox_host}}'
-      node: '{{item.node}}'
-      vmid: '{{item.vmid}}'
-      state: stopped
-      force: true
-      timeout: 30
-    loop: '{{ kube_cluster }}'
-
-  - name: Remove cloud-init drive
-    community.general.proxmox_disk:
-      api_user: '{{proxmox_user}}'
-      api_token_id: '{{proxmox_token_id}}'
-      api_token_secret: '{{proxmox_token_secret}}'
-      api_host: '{{proxmox_host}}'
-      vmid: '{{item.vmid}}'
-      disk: 'ide2'
-      state: absent
-    loop: '{{ kube_cluster }}'
-
-  - name: Remove VM
-    community.general.proxmox_kvm:
-      api_user: '{{proxmox_user}}'
-      api_token_id: '{{proxmox_token_id}}'
-      api_token_secret: '{{proxmox_token_secret}}'
-      api_host: '{{proxmox_host}}'
-      vmid: '{{item.vmid}}'
-      state: absent
-    loop: '{{ kube_cluster }}'
-
-    
-# - name: Update network settings
-#   proxmox_kvm:
-#     api_user: '{{proxmox_user}}'
-#     api_token_id: '{{proxmox_token_id}}'
-#     api_token_secret: '{{proxmox_token_secret}}'
-#     api_host: '{{proxmox_host}}'
-#     node: '{{item.node}}'
-#     vmid: '{{item.vmid}}'
-#     ipconfig:
-#       ipconfig0: 'ip={{item.ipv4_address}},gw={{item.ipv4_gateway}}'
-#     timeout: 60
-#     update: true
-#   loop: '{{kube_cluster}}'
-#   when: (item.state == "new") and
-#         (item.ipv4mode == 'static')
-#   no_log: yes
+  roles:
+    - delete_known_hosts

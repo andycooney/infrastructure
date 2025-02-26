@@ -7,5 +7,5 @@
     owner: root
     group: root
     mode: 0644
-  loop: '{{kube_cluster}}'
+  loop: '{{k3snodes}}'
   no_log: yes

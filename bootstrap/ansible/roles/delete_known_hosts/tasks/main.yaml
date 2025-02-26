@@ -1,0 +1,9 @@
+- name: Read in vars files
+  ansible.builtin.include_vars:
+    dir: ../group_vars
+
+- name: Remove known_hosts
+  ansible.builtin.known_hosts:
+    name: '{{ item.name }}.{{ domain_name }}'
+    state: absent
+  loop: '{{ k3snodes }}'
