@@ -1,0 +1,5 @@
+- hosts: localhost
+  become: false
+  gather_facts: false
+  roles:
+    - delete_known_hosts
