@@ -30,7 +30,7 @@ installFlux() {
   fi
 
   message "fetching secrets from 1Password vault"
-  GITHUB_TOKEN=$(op read "op://kubernetes/github-token/password")
+  export GITHUB_TOKEN=$(op read "op://kubernetes/github-token/password")
 
 
   message "installing flux"
