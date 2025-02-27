@@ -1,0 +1,4 @@
+---
+resources:
+  # Flux-Kustomizations
+  - ./ks.yaml

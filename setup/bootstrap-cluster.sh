@@ -49,7 +49,6 @@ installFlux() {
     --token-auth \
     --owner=andyopengit \
     --repository=home_sys \
-    --path=kubernetes \
     --branch master \
     --personal \
     --network-policy=false

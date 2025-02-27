@@ -5,7 +5,7 @@ pvenodes:
     pve02.cooney.site:
 k3s_cluster:
   children:
-    master:
+    server:
       hosts:
         kube01:
           ansible_host: 172.16.1.171
@@ -13,7 +13,7 @@ k3s_cluster:
           ansible_host: 172.16.1.172
         kube03:
           ansible_host: 172.16.1.173
-    node:
+    agent:
       hosts:
         kube04:
           ansible_host: 172.16.1.174
