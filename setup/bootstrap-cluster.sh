@@ -45,13 +45,7 @@ installFlux() {
     echo "GITHUB_TOKEN is not set! Check $REPO_ROOT/setup/.env or 1Password settings"
     exit 1
   fi
-  flux bootstrap github \
-    --token-auth \
-    --owner=andyopengit \
-    --repository=home_sys \
-    --branch master \
-    --personal \
-    --network-policy=false
+  flux bootstrap github --token-auth --owner=andyopengit --repository=home_sys --branch master --personal --network-policy=false
 
   FLUX_INSTALLED=$?
   if [ $FLUX_INSTALLED != 0 ]; then
