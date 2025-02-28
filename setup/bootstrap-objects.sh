@@ -42,7 +42,7 @@ installManualObjects(){
   message "installing manual secrets and objects"
 
   ##########
-  # secrets
+  # secrets 
   ##########
 #   kubectl -n kube-system create secret docker-registry registry-creds-secret --namespace kube-system --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_TOKEN --docker-email=$DOCKER_EMAIL
   kubectl -n kube-system create secret generic op-credentials --from-literal=1password-credentials.json="$(echo $OP_CREDENTIALS_JSON)"
@@ -63,7 +63,7 @@ installManualObjects(){
 
 }
 
-export KUBECONFIG="$REPO_ROOT/setup/kubeconfig"
+# export KUBECONFIG="$REPO_ROOT/setup/kubeconfig"
 installManualObjects
 
 message "all done!"

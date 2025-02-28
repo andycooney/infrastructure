@@ -1,0 +1,43 @@
+- name: Bootstrap Flux
+  hosts: localhost
+  become: false
+  gather_facts: false
+  tasks:
+  - name: Create a k8s namespace
+    kubernetes.core.k8s:
+      name: flux-system
+      api_version: v1
+      kind: Namespace
+      state: present
+
+  - name: Add secrets for 1Password integration
+    kubernetes.core.k8s:
+      state: present
+      definition: 
+        apiVersion: v1
+        kind: Secret
+        type: Opaque             
+        metadata:
+          name: "onepassword-token"
+          namespace: "flux-system"     
+        data:
+          config_data.json: "{{ onepass_token }}"
+
+  - name: Add secrets for 1Password integration
+    kubernetes.core.k8s:
+      state: present
+      definition: 
+        apiVersion: v1
+        kind: Secret
+        type: Opaque             
+        metadata:
+          name: "op-credentials"
+          namespace: "flux-system"     
+        data:
+          config_data.json: "{{ onepass_credentials }}"
+
+  - name: Bootstrap Flux
+    command:
+      cmd: flux bootstrap github --token-auth --owner="{{ github_user }}" --repository="{{ github_repo }}" --branch="{{ github_branch }}" --path="{{ github_path }}" --personal --force
+    environment:
+      GITHUB_TOKEN: "{{ github_token }}"
