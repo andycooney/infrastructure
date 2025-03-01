@@ -1,0 +1,5 @@
+- name: Install Cilium
+  hosts: localhost
+  become: false
+  roles:
+    - install_cilium
