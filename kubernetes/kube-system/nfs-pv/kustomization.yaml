@@ -1,0 +1,3 @@
+resources:
+  - nfs-media-tvshows-pv.yaml
+  - nfs-sonarr-config-pv.yaml

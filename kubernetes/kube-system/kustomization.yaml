@@ -1,0 +1,4 @@
+resources:
+  - ./external-secrets
+  - ./nfs-client-provisioner
+  - ./nfs-pv
