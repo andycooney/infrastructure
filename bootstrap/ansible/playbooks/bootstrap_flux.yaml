@@ -37,16 +37,16 @@
           config_data.json: "{{ onepass_credentials }}"
 
   - name: Bootstrap Flux
-    # command:
-    #   cmd: echo {{ github_token }} | flux bootstrap github --token-auth --owner="{{ github_user }}" --repository="{{ github_repo }}" --branch="{{ github_branch }}" --path="{{ github_path }}" --personal --force
-  tasks:
-    - block:
-      - command:
-          # cmd: 'echo $GITHUB_TOKEN'
-          cmd: flux bootstrap github --token-auth --owner="{{ github_user }}" --repository="{{ github_repo }}" --branch="{{ github_branch }}" --path="{{ github_path }}" --personal --force
-        register: result
-      - debug:
-          var: result.stdout
+    command:
+      cmd: echo {{ github_token }} | flux bootstrap github --token-auth --owner="{{ github_user }}" --repository="{{ github_repo }}" --branch="{{ github_branch }}" --path="{{ github_path }}" --personal --force
+  # tasks:
+  #   - block:
+  #     - command:
+  #         # cmd: 'echo $GITHUB_TOKEN'
+  #         cmd: flux bootstrap github --token-auth --owner="{{ github_user }}" --repository="{{ github_repo }}" --branch="{{ github_branch }}" --path="{{ github_path }}" --personal --force
+  #       register: result
+  #     - debug:
+  #         var: result.stdout
         
-      environment:
-        GITHUB_TOKEN: "{{ github_token }}"
+    environment:
+      GITHUB_TOKEN: "{{ github_token }}"
