@@ -2,6 +2,7 @@
   hosts: pvenodes
   become: true
   roles:
+    - install_proxmox_prereqs
     - download_cloud_init_images
     - create_user_files
 

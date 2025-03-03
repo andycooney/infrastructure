@@ -1,7 +1,6 @@
 ansible_port: 22
 ansible_user: andy
-ansible_key_file: './vault_pass'
-project_path: '../ansible'
+project_path: "{{ lookup('pipe', 'git rev-parse --show-toplevel') }}"
 image_path: '/var/lib/vz/images/0/'
 domain_name: 'cooney.site'
 timezone: 'America/New_York'
@@ -9,11 +8,4 @@ locale: 'en_US.UTF-8'
 group_name: pvenodes
 nameservers:
   - 172.16.1.1
-github_token: "{{ lookup('community.general.onepassword', 'cloudflare_token', vault='kubernetes') }}"
-github_user: 'andyopengit'
-github_repo: 'home_sys'
-github_branch: 'master'
-github_path: 'kubernetes'
 
-onepass_credentials: "{{ lookup('community.general.onepassword_doc', 'onepass_credentials', vault='kubernetes')  | b64encode }}"
-onepass_token: "{{ lookup('community.general.onepassword', 'onepass_token', vault='kubernetes') | b64encode }}"

@@ -8,4 +8,4 @@
     group: root
     mode: 0644
   loop: '{{k3snodes}}'
-  no_log: yes
+  no_log: false

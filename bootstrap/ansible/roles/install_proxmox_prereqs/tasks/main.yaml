@@ -1,0 +1,6 @@
+- name: Install required packages
+  ansible.builtin.package:
+    name:
+      - python3-proxmoxer
+      - python3-requests
+    state: latest

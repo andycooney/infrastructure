@@ -8,7 +8,6 @@
         api_version: v1
         kind: Namespace
         state: present
-
     - name: Deploy Cilium 1.17.x
       kubernetes.core.helm:
         name: cilium
@@ -40,4 +39,31 @@
           ipv4NativeRoutingCIDR: 10.244.0.0/16
           enableIPv4Masquerade: true
           autoDirectNodeRoutes: true
-          
+    
+    - name: Wait for Cilium resources
+      ansible.builtin.command: >-
+        {% if item.type == 'daemonset' %}
+        {{ k3s_kubectl_binary | default('k3s kubectl') }} wait pods
+        --namespace=kube-system
+        --selector='k8s-app=cilium'
+        --for=condition=Ready
+        {% else %}
+        {{ k3s_kubectl_binary | default('k3s kubectl') }} wait {{ item.type }}/{{ item.name }}
+        --namespace=kube-system
+        --for=condition=Available
+        {% endif %}
+        --timeout=30s
+      register: cr_result
+      changed_when: false
+      until: cr_result is succeeded
+      retries: 30
+      delay: 7
+      with_items:
+        - { name: cilium-operator, type: deployment }
+        - { name: cilium, type: daemonset, selector: k8s-app=cilium }
+        # - { name: hubble-relay, type: deployment, check_hubble: true }
+        # - { name: hubble-ui, type: deployment, check_hubble: true }
+      loop_control:
+        label: "{{ item.type }}/{{ item.name }}"
+      when: >-
+        not item.check_hubble | default(false) or (item.check_hubble | default(false) and cilium_hubble)
