@@ -14,11 +14,11 @@
   roles:
     - role: k3s_server
 
-# - name: Install Cilium
-#   hosts: localhost
-#   become: false
-#   roles:
-#     - install_cilium
+- name: Install Cilium
+  hosts: localhost
+  become: false
+  roles:
+    - install_cilium
 
 - name: Setup K3S server
   hosts: server
