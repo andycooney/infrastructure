@@ -1,4 +1,13 @@
 ---
+- name: Pause before trying to install packages
+  hosts: localhost
+  become: false
+  gather_facts: false
+  tasks:
+    - name: Wait
+      pause:
+        seconds: 30
+
 - name: Cluster prep
   hosts: k3s_cluster
   gather_facts: true
