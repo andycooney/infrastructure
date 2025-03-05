@@ -24,8 +24,8 @@
   hosts: localhost
   become: false
   tasks:
-    ansible.builtin.pause:
-      seconds: 30
+    - ansible.builtin.pause:
+        seconds: 30
 
 - name: Setup K3S server
   hosts: server
