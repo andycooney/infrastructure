@@ -9,7 +9,7 @@
     # - role: raspberrypi
 
 - name: Setup K3S server
-  hosts: server
+  hosts: server[0]
   become: true
   roles:
     - role: k3s_server
@@ -19,6 +19,10 @@
   become: false
   roles:
     - install_cilium
+
+- name: Pause to allow cilium startup
+  ansible.builtin.pause:
+    seconds: 30
 
 - name: Setup K3S server
   hosts: server
