@@ -4865,7 +4865,7 @@ spec:
       - args:
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
-        - --log-level=info
+        - --log-level=debug
         - --log-encoding=json
         - --enable-leader-election
         - --storage-path=/data
@@ -6758,7 +6758,7 @@ spec:
       - args:
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
-        - --log-level=info
+        - --log-level=debug
         - --log-encoding=json
         - --enable-leader-election
         env:
@@ -10560,7 +10560,7 @@ spec:
       - args:
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
-        - --log-level=info
+        - --log-level=debug
         - --log-encoding=json
         - --enable-leader-election
         env:
@@ -12512,7 +12512,7 @@ spec:
       containers:
       - args:
         - --watch-all-namespaces=true
-        - --log-level=info
+        - --log-level=debug
         - --log-encoding=json
         - --enable-leader-election
         env:
