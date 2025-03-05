@@ -1,0 +1,3 @@
+- import_playbook: remove_kubernetes_nodes.yaml
+- import_playbook: build_kubernetes_nodes.yaml
+- import_playbook: setup_k3s_cluster.yaml
