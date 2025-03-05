@@ -21,8 +21,11 @@
     - install_cilium
 
 - name: Pause to allow cilium startup
-  ansible.builtin.pause:
-    seconds: 30
+  hosts: localhost
+  become: false
+  tasks:
+    ansible.builtin.pause:
+      seconds: 30
 
 - name: Setup K3S server
   hosts: server
