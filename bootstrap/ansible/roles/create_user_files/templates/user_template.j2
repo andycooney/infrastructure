@@ -1,7 +1,7 @@
 #cloud-config
 hostname: {{item.name}}
 manage_etc_hosts: true
-fqdn: {{item.name}}.{{domain_name}}
+fqdn: {{item.name}}.local
 user: {{ciuser}}
 ssh_authorized_keys:
   - {{ciuser_sshkey}}
