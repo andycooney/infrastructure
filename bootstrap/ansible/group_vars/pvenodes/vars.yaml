@@ -5,12 +5,12 @@ snippets_storage: local
 snippets_path: '/var/lib/vz/snippets/'
 image_storage: local
 linux_bridge: vmbr0
-ciuser: "{{ lookup('community.general.onepassword', vault='kubernetes', 'ciuser', field='username') }}"
-ciuser_sshkey: "{{ lookup('community.general.onepassword', vault='kubernetes', 'ciuser', field='sshkey') }}"
+ciuser: "{{ lookup('community.general.onepassword', 'ciuser', vault='kubernetes', field='username') }}"
+ciuser_sshkey: "{{ lookup('community.general.onepassword', 'ciuser', vault='kubernetes', field='sshkey') }}"
 proxmox_host: "{{ groups['pvenodes'][0] }}"
-proxmox_user: "{{ lookup('community.general.onepassword', vault='kubernetes', 'proxmox_user', field='username') }}"
-proxmox_token_id: "{{ lookup('community.general.onepassword', vault='kubernetes', 'proxmox_user', field='token_id') }}"
-proxmox_token_secret: "{{ lookup('community.general.onepassword', vault='kubernetes', 'proxmox_user', field='token_id_secret') }}"
+proxmox_user: "{{ lookup('community.general.onepassword', 'proxmox_user', vault='kubernetes', field='username') }}"
+proxmox_token_id: "{{ lookup('community.general.onepassword', 'proxmox_user', vault='kubernetes', field='token_id') }}"
+proxmox_token_secret: "{{ lookup('community.general.onepassword', 'proxmox_user', vault='kubernetes', field='token_id_secret') }}"
 os_images:
   - name: ubuntu_24.04
     cloud_init_file: 'noble-server-cloudimg-amd64.qcow2'
