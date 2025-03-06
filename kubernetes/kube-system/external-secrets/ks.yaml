@@ -39,5 +39,5 @@ spec:
       name: onepassword
       namespace: kube-system
   interval: 10m
-  retryInterval: 1m
+  retryInterval: 3m
   timeout: 1m
