@@ -1,0 +1,29 @@
+- name: Include all default extension files in vars/all and all nested directories and save the output in test. (2.2)
+  ansible.builtin.include_vars:
+    dir: "{{ project_path }}/bootstrap/ansible/group_vars"
+      
+- name: Add secrets for 1Password integration
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: Secret
+      type: Opaque             
+      metadata:
+        name: "onepassword-token"
+        namespace: "kube-system"     
+      data:
+        config_data.json: "{{ onepass_token }}"
+
+- name: Add secrets for 1Password integration
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: Secret
+      type: Opaque             
+      metadata:
+        name: "op-credentials"
+        namespace: "kube-system"     
+      data:
+        config_data.json: "{{ onepass_credentials }}"

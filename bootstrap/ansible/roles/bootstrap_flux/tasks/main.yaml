@@ -1,0 +1,17 @@
+- name: Include all default extension files in vars/all and all nested directories and save the output in test. (2.2)
+  ansible.builtin.include_vars:
+    dir: "{{ project_path }}/bootstrap/ansible/group_vars"
+
+- name: Bootstrap Flux
+  shell:
+    cmd: >
+      echo {{ github_token }} |
+      flux bootstrap github
+      --token-auth --owner="{{ github_user }}"
+      --repository="{{ github_repo }}"
+      --branch="{{ github_branch }}"
+      --path="{{ github_path }}"
+      --personal
+      --force
+      --private=true
+      --network-policy=false
