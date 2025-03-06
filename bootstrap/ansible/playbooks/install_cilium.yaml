@@ -39,6 +39,16 @@
           ipv4NativeRoutingCIDR: 10.244.0.0/16
           enableIPv4Masquerade: true
           autoDirectNodeRoutes: true
+          l2announcements:
+            enabled: true
+          hubble:
+            enabled: true
+            ui:
+              enabled: true
+            relay:
+              enabled: true
+          routingMode: "native"
+
     
     - name: Wait for Cilium resources
       ansible.builtin.command: >-
