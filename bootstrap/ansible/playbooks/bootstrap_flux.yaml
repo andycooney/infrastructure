@@ -3,6 +3,11 @@
   become: false
   gather_facts: false
   tasks:
+
+  - name: Include all default extension files in vars/all and all nested directories and save the output in test. (2.2)
+    ansible.builtin.include_vars:
+      dir: "{{ project_path }}/bootstrap/ansible/group_vars"
+
   - name: Create a k8s namespace
     kubernetes.core.k8s:
       name: flux-system
