@@ -40,6 +40,42 @@
       ipv4NativeRoutingCIDR: 10.244.0.0/16
       enableIPv4Masquerade: true
       autoDirectNodeRoutes: true
+      l2announcements:
+        enabled: true
+      hubble:
+        enabled: true
+        ui:
+          enabled: true
+          tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
+          - key: node-role.kubernetes.io/master
+            operator: Exists
+            effect: NoSchedule
+        relay:
+          enabled: true
+          tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
+          - key: node-role.kubernetes.io/master
+            operator: Exists
+            effect: NoSchedule
+      # routingMode: "native"
+      # hubble:
+      #   relay:
+      #     nodeSelector:
+      # hubble.relay.tolerations
+      # tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      # - key: node-role.kubernetes.io/control-plane
+      #   operator: Exists
+      #   effect: NoSchedule
+      # - key: node-role.kubernetes.io/master
+      #   operator: Exists
+      #   effect: NoSchedule
 
 # - name: Wait for Cilium resources
 #   ansible.builtin.command: >-
@@ -71,6 +107,8 @@
   changed_when: false
   until: cr_result is succeeded
   retries: 30
+  vars:
+    cilium_hubble: true
   delay: 7
   with_items:
     - { name: cilium-operator, type: deployment }
