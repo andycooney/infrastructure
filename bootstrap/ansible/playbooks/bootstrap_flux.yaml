@@ -24,7 +24,7 @@
         type: Opaque             
         metadata:
           name: "onepassword-token"
-          namespace: "flux-system"     
+          namespace: "kube-system"     
         data:
           config_data.json: "{{ onepass_token }}"
 
@@ -37,7 +37,7 @@
         type: Opaque             
         metadata:
           name: "op-credentials"
-          namespace: "flux-system"     
+          namespace: "kube-system"     
         data:
           config_data.json: "{{ onepass_credentials }}"
 
