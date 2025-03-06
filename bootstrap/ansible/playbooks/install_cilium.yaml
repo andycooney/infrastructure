@@ -47,9 +47,8 @@
               enabled: true
             relay:
               enabled: true
-          routingMode: "native"
+          # routingMode: "native"
 
-    
     - name: Wait for Cilium resources
       ansible.builtin.command: >-
         kubectl wait pods
