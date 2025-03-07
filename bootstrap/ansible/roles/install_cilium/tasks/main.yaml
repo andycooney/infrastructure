@@ -68,6 +68,17 @@
             operator: Exists
             effect: NoSchedule
       routingMode: "native"
+      ingressController:
+        enabled: true
+        default: true
+        service:
+          externalTrafficPolicy: Cluster
+          type: LoadBalancer
+        loadbalancerMode: dedicated
+      externalIPs:
+        enabled: true
+      loadBalancerIPs:
+        enabled: true
  
 - name: Wait for Cilium resources
   ansible.builtin.command: >-
