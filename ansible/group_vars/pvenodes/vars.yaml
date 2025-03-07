@@ -73,3 +73,6 @@ k3snodes:
     ipv4_gateway: 172.16.1.1
     mac_address: bc:24:11:59:93:0b
     state: new
+proxmox_packages:
+  - python3-proxmoxer
+  - python3-requests

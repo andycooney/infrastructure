@@ -12,6 +12,12 @@
       include_role:
         name: prereq
 
+    - name: Install additional packages
+      include_role:
+        name: install_packages
+      vars:
+        packages: "{{ k3s_packages }}"
+
 - name: Setup K3S server
   hosts: server[0]
   become: true
@@ -40,7 +46,7 @@
   roles:
     - role: k3s_agent
 
-- name: Bootstrap secrets for 1Password external-secrets and flux
+- name: Bootstrap flux and secrets for 1Password external-secrets
   hosts: localhost
   become: false
   gather_facts: false
