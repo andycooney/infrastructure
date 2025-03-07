@@ -25,13 +25,14 @@ extra_agent_args:
 systemd_dir: /etc/systemd/system
 k3s_packages:
   - nfs-common
+nginx_external_address: "172.16.1.190"
 cilium:
   version: 1.17.x
   hubble_ui_emdpoint_cidr: "172.16.1.180"
   interface: "eth0"
   l2:
     blocks:
-    - start: "172.16.1.190"
+    - start: "172.16.1.180"
       stop: "172.16.1.199"
     announcements:
       lease:

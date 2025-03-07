@@ -92,8 +92,8 @@
             internalTrafficPolicy: Cluster
             ipFamilies:
             - IPv4
-            ipFamilyPolicy: SingleStack
-            loadBalancerClass: io.cilium/l2-announcer
+            # ipFamilyPolicy: SingleStack
+            # loadBalancerClass: io.cilium/l2-announcer
             ports:
             - name: http
               port: 80
@@ -102,3 +102,4 @@
             selector:
               k8s-app: hubble-ui
             type: LoadBalancer
+            externalTrafficPolicy: Cluster
