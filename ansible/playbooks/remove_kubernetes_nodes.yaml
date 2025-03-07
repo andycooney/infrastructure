@@ -7,11 +7,9 @@
 - hosts: pvenodes[0]
   become: false
   tasks:
-  roles:
-    - delete_k3s_nodes
-
-- hosts: localhost
-  become: false
-  gather_facts: false
-  roles:
-    - delete_known_hosts
+    - include_role:
+        name: delete_k3s_nodes
+    
+    - name: Install additional packages
+      include_role:
+        name: delete_known_hosts

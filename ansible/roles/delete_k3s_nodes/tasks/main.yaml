@@ -10,6 +10,7 @@
     force: true
     timeout: 30
   loop: '{{ k3snodes }}'
+  ignore_errors: true
 
 - name: Remove VM
   community.general.proxmox_kvm:
@@ -20,3 +21,4 @@
     vmid: '{{item.vmid}}'
     state: absent
   loop: '{{ k3snodes }}'
+  ignore_errors: true

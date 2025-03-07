@@ -4,7 +4,8 @@ metadata:
   name: nginx
   namespace: default
   annotations:
-    io.cilium/lb-ipam-ips: '{{ nginx_external_address }}'
+    # io.cilium/lb-ipam-ips: '{{ nginx_external_address }}'
+    lbipam.cilium.io/ips: "{{ nginx_external_address }}"
 spec:
   selector:
     app: nginx

@@ -1,9 +1,12 @@
 - name: Read in vars files
+  delegate_to: localhost
   ansible.builtin.include_vars:
-    dir: /Users/andycooney/source/home_sys/bootstrap/ansible/group_vars
+    dir: "{{ project_path }}/ansible/group_vars}}"
   when: 'k3snodes is undefined'
+  ignore_errors: true
 
 - name: Remove known_hosts
+  delegate_to: localhost
   ansible.builtin.known_hosts:
     name: '{{ item.name }}.{{ domain_name }}'
     state: absent
