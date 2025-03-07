@@ -34,6 +34,9 @@
       ansible.builtin.pause:
         seconds: 30
 
+- name: Setup Cilium LB
+  ansible.builtin.import_playbook: setup_cilium_lb.yaml
+
 - name: Setup K3S server
   hosts: server
   become: true

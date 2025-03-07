@@ -13,7 +13,7 @@
   kubernetes.core.helm:
     name: cilium
     chart_ref: cilium/cilium
-    chart_version: 1.17.x
+    chart_version: "{{ cilium.version }}"
     release_namespace: kube-system
     wait: true
     values:
@@ -30,6 +30,7 @@
       operator:
         replicas: 1
       ipam:
+        mode: kubernetes
         operator:
           clusterPoolIPv4PodCIDRList: "10.42.0.0/16"
           clusterPoolIPv4MaskSize: 24
@@ -41,6 +42,9 @@
       autoDirectNodeRoutes: true
       l2announcements:
         enabled: true
+        leaseDuration: "{{ cilium.l2.announcements.lease.duration }}"
+        leaseRenewDeadline: "{{ cilium.l2.announcements.lease.renew_deadline }}"
+        leaseRetryPeriod: "{{ cilium.l2.announcements.lease.retry_period }}"
       loadBalancer:
         l7:
           backend: envoy
@@ -67,14 +71,14 @@
           - key: node-role.kubernetes.io/master
             operator: Exists
             effect: NoSchedule
-      routingMode: "native"
-      ingressController:
-        enabled: true
-        default: true
-        service:
-          externalTrafficPolicy: Cluster
-          type: LoadBalancer
-        loadbalancerMode: dedicated
+      # routingMode: "native"
+      # ingressController:
+      #   enabled: true
+      #   default: true
+      #   service:
+      #     externalTrafficPolicy: Cluster
+      #     type: LoadBalancer
+      #   loadbalancerMode: dedicated
       externalIPs:
         enabled: true
       loadBalancerIPs:

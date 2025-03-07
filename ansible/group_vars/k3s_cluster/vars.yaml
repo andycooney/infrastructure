@@ -25,3 +25,19 @@ extra_agent_args:
 systemd_dir: /etc/systemd/system
 k3s_packages:
   - nfs-common
+cilium:
+  version: 1.17.x
+  hubble_ui_emdpoint_cidr: "172.16.1.180"
+  interface: "eth0"
+  l2:
+    blocks:
+    - start: "172.16.1.190"
+      stop: "172.16.1.199"
+    announcements:
+      lease:
+        duration: 3s
+        renew_deadline: 1s
+        retry_period: 500ms
+  k8s_client_rate_limit:
+    qps: 2
+    burst: 5
