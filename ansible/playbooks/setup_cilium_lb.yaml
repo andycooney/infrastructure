@@ -109,8 +109,8 @@
 
   - name: Cilium L2 | Create Hubble Load Balancer
     when:
-    - cilium.hubble_ui_emdpoint_cidr is defined
-    - cilium.hubble_ui_emdpoint_cidr | length > 8
+    - ippool.hubble_ui.ip
+    - ippool.hubble_ui.ip | length > 8
     delegate_to: localhost
     kubernetes.core.k8s:
       wait: true
@@ -120,7 +120,7 @@
         kind: Service
         metadata:
           annotations:
-            # io.cilium/lb-ipam-ips: '{{ cilium.hubble_ui_emdpoint_cidr }}'
+            # io.cilium/lb-ipam-ips: '{{ ippool.hubble_ui.ip }}'
             lbipam.cilium.io/ips: '{{ ippool.hubble_ui.ip }}'
           labels:
             app.kubernetes.io/name: hubble-ui
