@@ -1,7 +1,7 @@
 apiVersion: onepassword.com/v1
 kind: OnePasswordItem
 metadata:
-  name: cloudflare_api_token
+  name: cloudflare-api-token
   namespace: kube-system
 spec:
   itemPath: "/vaults/kubernetes/items/cloudflare_token"
