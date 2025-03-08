@@ -4,7 +4,7 @@ metadata:
   name: nginx
   namespace: default
   labels:
-    pool: '{{ ippool.lb.name }}'
+    pool: "lb-pool"
   annotations:
     lbipam.cilium.io/ips: "172.16.1.192"
     # io.cilium/lb-ipam-ips: '{{ nginx_external_address }}'
