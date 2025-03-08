@@ -1,0 +1,6 @@
+- name: Bootstrap flux and secrets for 1Password external-secrets
+  hosts: localhost
+  become: false
+  gather_facts: false
+  roles:
+    - role: bootstrap_flux
