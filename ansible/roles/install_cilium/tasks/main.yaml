@@ -21,6 +21,8 @@
       # enableIPv4Masquerade: true
       externalIPs:
         enabled: true
+      gatewayAPI:
+        enabled: true
       hubble:
         enabled: true
         ui:
@@ -43,14 +45,14 @@
           - key: node-role.kubernetes.io/master
             operator: Exists
             effect: NoSchedule
-      ingressController:
-        enabled: true
-        default: true
-        service:
-          externalTrafficPolicy: Cluster
-          type: LoadBalancer
-          loadBalancerIP: "{{ ippool.ingress_controller.ip }}"
-        loadbalancerMode: shared
+      # ingressController:
+      #   enabled: true
+      #   default: true
+      #   service:
+      #     externalTrafficPolicy: Cluster
+      #     type: LoadBalancer
+      #     loadBalancerIP: "{{ ippool.ingress_controller.ip }}"
+      #   loadbalancerMode: shared
       ipam:
         mode: kubernetes
         operator:
