@@ -3,9 +3,12 @@ apiVersion: v1
 metadata:
   name: nginx
   namespace: default
+  labels:
+    pool: "{{ ippool.lb.name }}"
   annotations:
+    "lbipam.cilium.io/ips": "172.16.1.192"
     # io.cilium/lb-ipam-ips: '{{ nginx_external_address }}'
-    lbipam.cilium.io/ips: "{{ nginx_external_address }}"
+    # lbipam.cilium.io/ips: "{{ nginx_external_address }}"
 spec:
   selector:
     app: nginx

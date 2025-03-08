@@ -46,10 +46,11 @@
       ingressController:
         enabled: true
         default: true
-      #   service:
-      #     externalTrafficPolicy: Cluster
-      #     type: LoadBalancer
-      #   loadbalancerMode: dedicated
+        service:
+          externalTrafficPolicy: Cluster
+          type: LoadBalancer
+          loadBalancerIP: "{{ ippool.ingress_controller.ip }}"
+        loadbalancerMode: shared
       ipam:
         mode: kubernetes
         operator:
