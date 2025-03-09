@@ -1,0 +1,124 @@
+# - name: Create cilium-secrets namespace
+#   delegate_to: localhost
+#   become: false
+#   kubernetes.core.k8s:
+#     name: cilium-secrets
+#     api_version: v1
+#     kind: Namespace
+#     state: present
+
+- name: Deploy Cilium 1.17.x
+  delegate_to: localhost
+  become: false
+  kubernetes.core.helm:
+    name: cilium
+    chart_ref: cilium/cilium
+    chart_version: "{{ cilium.version }}"
+    release_namespace: kube-system
+    values:
+      # autoDirectNodeRoutes: true
+      cgroup:
+        autoMount:
+          enabled: false
+        hostRoot: "/sys/fs/cgroup"  
+      # devices: eth0
+      # enableIPv4Masquerade: true
+      # externalIPs:
+      #   enabled: true
+      # gatewayAPI:
+      #   enabled: true
+      # hubble:
+      #   enabled: true
+      #   ui:
+      #     enabled: true
+      #     rollOutPods: true
+      #     tolerations:
+      #     - key: node-role.kubernetes.io/control-plane
+      #       operator: Exists
+      #       effect: NoSchedule
+      #     - key: node-role.kubernetes.io/master
+      #       operator: Exists
+      #       effect: NoSchedule
+      #   relay:
+      #     enabled: true
+      #     rollOutPods: true
+      #     tolerations:
+      #     - key: node-role.kubernetes.io/control-plane
+      #       operator: Exists
+      #       effect: NoSchedule
+      #     - key: node-role.kubernetes.io/master
+      #       operator: Exists
+      #       effect: NoSchedule
+      # ingressController:
+      #   enabled: true
+      #   default: true
+      #   service:
+      #     externalTrafficPolicy: Cluster
+      #     type: LoadBalancer
+      #     loadBalancerIP: "{{ ippool.ingress_controller.ip }}"
+      #   loadbalancerMode: shared
+      ipam:
+        mode: kubernetes
+        operator:
+          clusterPoolIPv4PodCIDRList: "10.42.0.0/16"
+          clusterPoolIPv4MaskSize: 24
+      ipv4:
+        enabled: true
+      # ipv4NativeRoutingCIDR: 10.244.0.0/16
+      ipv6:
+        enabled: false
+      k8sServiceHost: "172.16.1.171"
+      k8sServicePort: "6443"
+      kubeProxyReplacement: "true"
+      # l2announcements:
+      #   enabled: true
+      #   leaseDuration: "{{ cilium.l2.announcements.lease.duration }}"
+      #   leaseRenewDeadline: "{{ cilium.l2.announcements.lease.renew_deadline }}"
+      #   leaseRetryPeriod: "{{ cilium.l2.announcements.lease.retry_period }}"
+      # loadBalancer:
+      #   l7:
+      #     backend: envoy
+      # loadBalancerIPs:
+      #   enabled: true
+      # operator:
+      #   replicas: 1
+      # rollOutCiliumPods: true
+      # routingMode: "native"
+      securityContext:
+        capabilities:
+          ciliumAgent: "{CHOWN,KILL,NET_ADMIN,NET_RAW,IPC_LOCK,SYS_ADMIN,SYS_RESOURCE,DAC_OVERRIDE,FOWNER,SETGID,SETUID}"
+          cleanCiliumState: "{NET_ADMIN,SYS_ADMIN,SYS_RESOURCE}"
+      # set-cilium-node-taints: "false"
+      # tls:
+      #   secretsNamespace:
+      #     create: false
+ 
+- name: Wait for Cilium resources
+  ansible.builtin.command: >-
+    {% if item.type == 'daemonset' %}
+    {{ k3s_kubectl_binary | default('k3s kubectl') }} wait pods
+    --namespace=kube-system
+    --selector='k8s-app=cilium'
+    --for=condition=Ready
+    {% else %}
+    {{ k3s_kubectl_binary | default('k3s kubectl') }} wait {{ item.type }}/{{ item.name }}
+    --namespace=kube-system
+    --for=condition=Available
+    {% endif %}
+    --timeout=30s
+  register: cr_result
+  changed_when: false
+  until: cr_result is succeeded
+  retries: 30
+  vars:
+    cilium_hubble: true
+  delay: 7
+  with_items:
+    - { name: cilium-operator, type: deployment }
+    - { name: cilium, type: daemonset, selector: k8s-app=cilium }
+    - { name: hubble-relay, type: deployment, check_hubble: true }
+    - { name: hubble-ui, type: deployment, check_hubble: true }
+  loop_control:
+    label: "{{ item.type }}/{{ item.name }}"
+  when: >-
+    not item.check_hubble | default(false) or (item.check_hubble | default(false) and cilium_hubble)

@@ -12,6 +12,7 @@
       --branch="{{ github_branch }}"
       --path="{{ github_path }}"
       --personal
+      --timeout=2m0s
       --force
       --private=true
       --network-policy=false
