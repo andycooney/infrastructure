@@ -80,14 +80,28 @@
       #     backend: envoy
       # loadBalancerIPs:
       #   enabled: true
-      # operator:
-      #   replicas: 1
+      operator:
+        replicas: 1
       # rollOutCiliumPods: true
       # routingMode: "native"
       securityContext:
         capabilities:
-          ciliumAgent: "{CHOWN,KILL,NET_ADMIN,NET_RAW,IPC_LOCK,SYS_ADMIN,SYS_RESOURCE,DAC_OVERRIDE,FOWNER,SETGID,SETUID}"
-          cleanCiliumState: "{NET_ADMIN,SYS_ADMIN,SYS_RESOURCE}"
+          ciliumAgent:
+          - CHOWN
+          - KILL
+          - NET_ADMIN
+          - NET_RAW
+          - IPC_LOCK
+          - SYS_ADMIN
+          - SYS_RESOURCE
+          - DAC_OVERRIDE
+          - FOWNER
+          - SETGID
+          - SETUID
+        cleanCiliumState:
+        - NET_ADMIN
+        - SYS_ADMIN
+        - SYS_RESOURCE
       # set-cilium-node-taints: "false"
       # tls:
       #   secretsNamespace:
@@ -116,8 +130,8 @@
   with_items:
     - { name: cilium-operator, type: deployment }
     - { name: cilium, type: daemonset, selector: k8s-app=cilium }
-    - { name: hubble-relay, type: deployment, check_hubble: true }
-    - { name: hubble-ui, type: deployment, check_hubble: true }
+    # - { name: hubble-relay, type: deployment, check_hubble: true }
+    # - { name: hubble-ui, type: deployment, check_hubble: true }
   loop_control:
     label: "{{ item.type }}/{{ item.name }}"
   when: >-
