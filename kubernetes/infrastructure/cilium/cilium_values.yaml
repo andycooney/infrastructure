@@ -10,6 +10,7 @@ hubble:
   ui:
     enabled: true
     rollOutPods: true
+    replicas: 1
     tolerations:
     - key: node-role.kubernetes.io/control-plane
       operator: Exists
@@ -19,6 +20,7 @@ hubble:
       effect: NoSchedule
   relay:
     enabled: true
+    replicas: 1
     rollOutPods: true
     tolerations:
     - key: node-role.kubernetes.io/control-plane
@@ -50,19 +52,12 @@ k8sServicePort: "6443"
 kubeProxyReplacement: "true"
 l2announcements:
   enabled: true
-  # leaseDuration: "{{ cilium.l2.announcements.lease.duration }}"
-  # leaseRenewDeadline: "{{ cilium.l2.announcements.lease.renew_deadline }}"
-  # leaseRetryPeriod: "{{ cilium.l2.announcements.lease.retry_period }}"
-# loadBalancer:
-#   l7:
-#     backend: envoy
 loadBalancerIPs:
   enabled: true
 operator:
   replicas: 1
 rollOutCiliumPods: true
 routingMode: "native"
-# set-cilium-node-taints: "false"
 tls:
   secretsNamespace:
     create: false
