@@ -3,9 +3,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - cilium_repo.yaml
-# - cilium_configmap.yaml
 - cilium_release.yaml
-- ippools.yaml
+- cilium_ippools.yaml
+- cilium_hubble_ui_lb.yaml
+- cilium_announcement_policy.yaml
 configMapGenerator:
   - name: cilium-configmap
     files:
