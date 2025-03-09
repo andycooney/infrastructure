@@ -5,6 +5,7 @@ resources:
 - cilium_repo.yaml
 # - cilium_configmap.yaml
 - cilium_release.yaml
+- ippools.yaml
 configMapGenerator:
   - name: cilium-configmap
     files:
