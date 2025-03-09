@@ -68,7 +68,7 @@
             pool: "{{ ippool.lb.name }}"
         spec:
           blocks: "{{ ippool.lb.pool }}"
-          # serviceSelector:
+          # serviceSelector: 
           #   matchLabels:
           #     serviceType: core
 
