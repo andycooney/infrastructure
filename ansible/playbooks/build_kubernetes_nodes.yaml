@@ -10,20 +10,25 @@
 - name: Create VMs
   hosts: pvenodes[0]
   become: false
-  roles:
-    - create_vms
-
-- name: Pause before doing some cleanup of cloud-init files
-  hosts: localhost
-  become: false
-  gather_facts: false
   tasks:
-    - name: Wait
+    - name: Create VMs
+      include_role:
+        name: create_vms
+
+    - name: Wait before cleaning up cloud init files
+      delegate_to: localhost
       pause:
-        seconds: 30
+        seconds: 15
 
 - name: Celanup cloud-init files
   hosts: pvenodes
   become: true
-  roles:
-    - delete_k3s_node_cloud_init_files
+  tasks:
+    - name: Clean up files
+      include_role:
+        name: delete_k3s_node_cloud_init_files
+
+    - name: Wait for VMs to start
+      delegate_to: localhost
+      pause:
+        seconds: 30
