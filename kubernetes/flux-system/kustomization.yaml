@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-# - kube-system.yaml
+- kube-system.yaml
