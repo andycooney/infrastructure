@@ -24,4 +24,3 @@ spec:
   sourceRef:
     kind: HelmRepository
     name: cilium
-  path: "./"
