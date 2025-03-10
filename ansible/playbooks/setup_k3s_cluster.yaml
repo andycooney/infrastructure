@@ -46,8 +46,14 @@
 - name: Setup K3S agent
   hosts: agent
   become: true
-  roles:
-    - role: k3s_agent
+  tasks:
+    - name: Install k3s agent
+      include_role:
+        name: k3s_agent
+
+    - name: Pause to allow cilium startup
+      ansible.builtin.pause:
+        seconds: 90
 
 - name: Bootstrap flux and secrets for 1Password external-secrets
   hosts: localhost

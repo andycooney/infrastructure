@@ -16,7 +16,7 @@
     chart_version: "{{ cilium.version }}"
     release_namespace: kube-system
     values:
-      # autoDirectNodeRoutes: true
+      autoDirectNodeRoutes: true
       cgroup:
         autoMount:
           enabled: false
@@ -83,7 +83,7 @@
       operator:
         replicas: 1
       # rollOutCiliumPods: true
-      # routingMode: "native"
+      routingMode: "native"
       securityContext:
         capabilities:
           ciliumAgent:
