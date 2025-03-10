@@ -18,9 +18,9 @@ spec:
   wait: true
   timeout: 3m0s
   retryInterval: 2m0s
-  path: ./
+  path: ./cilium
   prune: true
   targetNamespace: kube-system
   sourceRef:
-    kind: HelmRepository
-    name: cilium
+    kind: GitRepository
+    name: flux-system
