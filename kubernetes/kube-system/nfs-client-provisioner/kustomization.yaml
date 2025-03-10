@@ -6,3 +6,4 @@ kind: Kustomization
 #   namespace: kube-system
 resources:
   - nfs-client-provisioner.yaml
+  - nfs-subdir-external-provisioner-chart.yaml
