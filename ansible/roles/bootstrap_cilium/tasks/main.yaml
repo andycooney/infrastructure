@@ -64,7 +64,7 @@
           clusterPoolIPv4MaskSize: 24
       ipv4:
         enabled: true
-      # ipv4NativeRoutingCIDR: 10.244.0.0/16
+      ipv4NativeRoutingCIDR: 10.244.0.0/16
       ipv6:
         enabled: false
       k8sServiceHost: "172.16.1.171"
