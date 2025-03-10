@@ -1,4 +1,8 @@
 autoDirectNodeRoutes: true
+cgroup:
+  autoMount:
+    enabled: false
+  hostRoot: "/sys/fs/cgroup"
 devices: eth0
 # enableIPv4Masquerade: true
 externalIPs:
