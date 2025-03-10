@@ -15,7 +15,7 @@ os_images:
   - name: ubuntu_24.04
     cloud_init_file: 'noble-server-cloudimg-amd64.qcow2'
     image_url: 'https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img'
-    image_checksum: 'sha256:a3aea891c930ee0c762077b963834f5e083eb8102574f1e4dfc9e6e4c1c73ac0'
+    image_checksum: 'sha256:85af38f453feaa3d6fbc6aba3b2a843b5b10e8ce273a24047259bb7fa47ff4c5'
     state: present
 k3snodes:
   - name: kube01
