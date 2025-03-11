@@ -5,7 +5,7 @@ github_repo: "{{ lookup('community.general.onepassword', 'github_user', vault='k
 github_branch: "{{ lookup('community.general.onepassword', 'github_user', vault='kubernetes', field='branch') }}"
 github_path: "{{ lookup('community.general.onepassword', 'github_user', vault='kubernetes', field='path') }}"
 onepass_credentials: "{{ lookup('community.general.onepassword_doc', 'onepass_credentials', vault='kubernetes')  | b64encode }}"
-onepass_token: "{{ lookup('community.general.onepassword', 'onepass_token', vault='kubernetes') | b64encode }}"
+onepass_token: "{{ lookup('community.general.onepassword', 'onepass_token', vault='kubernetes') }}"
 token: "{{ lookup('community.general.onepassword', 'k3s_token', vault='kubernetes') }}"
 k3s_kubectl_binary: "kubectl"
 k3s_master_taint: "{{ true if groups['agent'] | default([]) | length >= 1 else false }}"
