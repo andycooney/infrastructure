@@ -14,7 +14,7 @@ hubble:
   ui:
     enabled: true
     rollOutPods: true
-    replicas: 3
+    replicas: 1
     tolerations:
     - key: node-role.kubernetes.io/control-plane
       operator: Exists
