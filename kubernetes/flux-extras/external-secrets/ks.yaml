@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  path: "./kubernetes/kube-system/external-secrets/chart"
+  path: "./kubernetes/flux-extras/external-secrets/chart"
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ metadata:
 spec:
   dependsOn:
     - name: external-secrets
-  path: "./kubernetes/kube-system/external-secrets/1password"
+  path: "./kubernetes/flux-extras/external-secrets/1password"
   prune: true
   sourceRef:
     kind: GitRepository
