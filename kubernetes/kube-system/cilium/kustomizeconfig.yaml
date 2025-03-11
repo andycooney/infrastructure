@@ -1,8 +1,7 @@
 nameReference:
 - kind: ConfigMap
   version: v1
-  metadata:
-    namespace: kube-system
+  namespace: kube-system
   fieldSpecs:
   - path: spec/valuesFrom/name
     kind: HelmRelease
