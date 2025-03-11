@@ -11,9 +11,9 @@
       type: Opaque             
       metadata:
         name: "onepassword-token"
-        namespace: "kube-system"     
+        namespace: "flux-system"     
       data:
-        config_data.json: "{{ onepass_token }}"
+        token: "{{ onepass_token }}"
 
 - name: Add secrets for 1Password integration
   kubernetes.core.k8s:
@@ -24,6 +24,6 @@
       type: Opaque             
       metadata:
         name: "op-credentials"
-        namespace: "kube-system"     
+        namespace: "flux-system"     
       data:
-        config_data.json: "{{ onepass_credentials }}"
+        1password-credentials.json: "{{ onepass_credentials }}"
