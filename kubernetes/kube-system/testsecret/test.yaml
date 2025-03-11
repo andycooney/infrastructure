@@ -3,6 +3,7 @@ kind: ExternalSecret
 metadata:
   # name of the ExternalSecret & Secret which gets created
   name: scaleway-credentials
+  namespace: kube-system
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
