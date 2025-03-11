@@ -1,20 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: 1password-connect
   namespace: kube-system 
 spec:
   destination:
     namespace: kube-system
-  project: default
+  # project: default
   source:
     repoURL: https://1password.github.io/connect-helm-charts
     targetRevision: 1.x.x
     chart: connect
-    helm:
-      values: |
-        connect:
-          serviceType: ClusterIP
+    values:
+      connect:
+        serviceType: ClusterIP
   # syncPolicy:
   #   automated: {}
   #   syncOptions:
