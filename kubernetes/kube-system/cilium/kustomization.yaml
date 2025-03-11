@@ -13,6 +13,7 @@ resources:
 - cilium_announcement_policy.yaml
 configMapGenerator:
   - name: cilium-configmap
+    namespace: kube-system
     files:
       - values.yaml=cilium_values.yaml
 configurations:
