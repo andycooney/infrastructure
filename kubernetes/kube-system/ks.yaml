@@ -3,7 +3,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: kube-system
-  namespace: kubesystem
+  namespace: kube-system
 spec:
   interval: 1m0s
   path: ./kubernetes/kube-system
