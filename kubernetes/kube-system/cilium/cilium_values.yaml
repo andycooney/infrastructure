@@ -73,6 +73,9 @@ operator:
   rollOutPods: true
 rollOutCiliumPods: true
 routingMode: "native"
+securityContext:
+  capabilities:
+    keepCapNetBindService: true
 tls:
   secretsNamespace:
     create: false
