@@ -12,7 +12,7 @@
       metadata:
         name: "onepassword-token"
         namespace: "kube-system"     
-      data:
+      stringData:
         token: "{{ onepass_token }}"
 
 - name: Add secrets for 1Password integration
@@ -26,4 +26,4 @@
         name: "op-credentials"
         namespace: "kube-system"     
       data:
-        1password-credentials.json: "{{ onepass_credentials }}"
+        1passcredentialsjson: "{{ onepass_credentials }}"
