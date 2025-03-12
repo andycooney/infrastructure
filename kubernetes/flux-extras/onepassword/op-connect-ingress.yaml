@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: connect-ingress
+  namespace: flux-system
   annotations:
     # Use cert-manager ClusterIssuer
     cert-manager.io/cluster-issuer: letsencrypt
