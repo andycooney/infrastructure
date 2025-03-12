@@ -1,6 +1,0 @@
----
-resources:
-  # Flux-Kustomizations
-  - ks.yaml
-  - external-secrets.yaml
-  - 1password-repo.yaml
