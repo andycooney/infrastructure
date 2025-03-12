@@ -25,5 +25,5 @@
       metadata:
         name: "op-credentials"
         namespace: "kube-system"     
-      data:
+      stringData:
         1passcredentialsjson: "{{ onepass_credentials }}"
