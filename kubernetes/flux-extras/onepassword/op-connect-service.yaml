@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: op-connect
+  namespace: flux-system
 spec:
   selector:
     app: op-connect
