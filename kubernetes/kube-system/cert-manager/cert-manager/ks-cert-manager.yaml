@@ -61,6 +61,10 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
+  postBuild:
+    substituteFrom:
+    - kind: Secret
+      name: cloudflare-api-token
   wait: true
   interval: 10m
   retryInterval: 1m
