@@ -1,11 +1,8 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: cert-manager
-helmCharts:
-  - name: cert-manager
-    repo: https://charts.jetstack.io
-    chart: cert-manager
-    version: v1.17.x # Or your desired version
-    valuesInline:
-      namespace: cert-manager
-      installCRDs: true # Or false if you prefer to manage CRDs manually
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: jetstack
+  namespace: kube-system
+spec:
+  interval: 30m
+  url: https://charts.jetstack.io
