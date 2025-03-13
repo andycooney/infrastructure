@@ -1,4 +1,4 @@
-apiVersion: "cilium.io/v2alpha1"
+apiVersion: cilium.io/v1.2
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: "ingres-controller-pool"
