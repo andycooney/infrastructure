@@ -6,14 +6,16 @@ metadata:
   namespace: kube-system
 spec:
   interval: 5m
+  retryInterval: 1m
+  timeout: 3m
   chart:
     spec:
       chart: external-secrets
-      version: 0.14.2
+      version: 0.14.x
       sourceRef:
         kind: HelmRepository
         name: external-secrets
-        namespace: flux-system
+        namespace: kube-system
       interval: 5m
   values:
     installCRDs: true
@@ -23,6 +25,6 @@ spec:
     webhook:
       serviceMonitor:
         enabled: true
-    certController:
-      serviceMonitor:
-        enabled: true
+    # certController:
+    #   serviceMonitor:
+    #     enabled: true
