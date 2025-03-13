@@ -2,10 +2,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: &app ks-nfs-client-provisioner
+  name: &app nfs-client-provisioner
   namespace: &ns kube-system
 spec:
-  path: ./kubernetes/kube-system/*app/app
+  path: ./kubernetes/kube-system/nfs-client-provisioner/app
   sourceRef:
     kind: GitRepository
     name: flux-system
