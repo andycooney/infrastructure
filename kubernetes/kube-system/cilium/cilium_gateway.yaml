@@ -1,17 +1,25 @@
+# gateway/gateway.yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: my-gateway
+  name: cilium-gateway
   namespace: kube-system
+  annotations:
+    cert-manager.io/issuer: cloudflare-issuer
 spec:
-  addresses:
-  - type: IPAddress
-    value: 172.16.1.184
   gatewayClassName: cilium
+  infrastructure:
+    annotations:
+      io.cilium/lb-ipam-ips: "172.16.1.184"
   listeners:
-  - allowedRoutes:
-      namespaces:
-        from: Same
-    name: web-gw
-    port: 80
-    protocol: HTTP
+    - protocol: HTTPS
+      port: 443
+      name: https-gateway
+      hostname: "*.cooney.site"
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: cloudflare-cert
+      allowedRoutes:
+        namespaces:
+          from: All
