@@ -6,7 +6,7 @@ metadata:
   namespace: &ns kube-system
 spec:
   targetNamespace: *ns
-  path: "./kubernetes/kube-system/cilium/app"
+  path: "./kubernetes/kube-system"
   sourceRef:
     kind: GitRepository
     name: flux-system
