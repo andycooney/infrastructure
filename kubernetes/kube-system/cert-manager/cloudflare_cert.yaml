@@ -15,13 +15,3 @@ spec:
     - digital signature
     - key encipherment
   secretName: cloudflare-cert
-
-
-flux create helmrelease cert-manager \
-  --chart cert-manager \
-  --source HelmRepository/cert-manager.kube-system \
-  --release-name cert-manager \
-  --target-namespace kube-system \
-  --create-target-namespace \
-  --values values.yaml \
-  --chart-version 1.17.x
