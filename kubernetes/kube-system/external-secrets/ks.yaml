@@ -29,7 +29,7 @@ metadata:
 spec:
   dependsOn:
     - name: external-secrets
-  path: "./kubernetes/kube-system/external-secrets/1password"
+  path: "./kubernetes/kube-system"
   interval: 5m
   retryInterval: 1m
   timeout: 3m
