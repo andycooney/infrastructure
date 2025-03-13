@@ -5,13 +5,13 @@ metadata:
   name: &app cilium
   namespace: &ns kube-system
 spec:
-  path: ./kubernetes/kube-system/cilium/app
+  path: "./kubernetes/kube-system/cilium/app"
   sourceRef:
     kind: GitRepository
     name: flux-system
   wait: true
   prune: true
-  interval: 10m
+  interval: 2m
   retryInterval: 1m
   timeout: 3m
   healthChecks:
