@@ -6,5 +6,5 @@ resources:
   - ./ca-clusterissuer.yaml
   # - ./letsencrypt-production.yaml
   - ./letsencrypt-staging.yaml
-  - ./cloudflare_secret.yaml
+  # - ./cloudflare_secret.yaml
   # - ./secret.sops.yaml

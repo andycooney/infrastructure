@@ -6,4 +6,5 @@ namespace: kube-system
 resources:
   - ./chart.yaml
   - ./helmrelease.yaml
+  - ./clourflare-secret.yaml
   # - ./prometheusrule.yaml
