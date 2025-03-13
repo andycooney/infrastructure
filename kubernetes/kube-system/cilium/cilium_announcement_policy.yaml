@@ -8,6 +8,6 @@ spec:
     matchExpressions:
     - key: node-role.kubernetes.io/control-plane
       operator: DoesNotExist
-  interfaces: [eth0]
+  interfaces: []
   externalIPs: true
   loadBalancerIPs: true
