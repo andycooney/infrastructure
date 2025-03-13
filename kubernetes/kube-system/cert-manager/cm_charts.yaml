@@ -1,17 +1,11 @@
-# cert-manager/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
-resources:
-  # - ns.yaml
-
+namespace: cert-manager
 helmCharts:
   - name: cert-manager
     repo: https://charts.jetstack.io
-    version: 1.17.x
-    releaseName: cert-manager
-    namespace: kube-system
+    chart: cert-manager
+    version: v1.17.x # Or your desired version
     valuesInline:
-      crds.enabled: true
-      extraArgs:
-        - "--enable-gateway-api"
+      namespace: cert-manager
+      installCRDs: true # Or false if you prefer to manage CRDs manually
