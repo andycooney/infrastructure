@@ -1,0 +1,22 @@
+# gateway/gateway.yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: cilium-gateway
+  namespace: kube-system
+  annotations:
+    cert-manager.io/issuer: letsencrypt-staging
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - protocol: HTTPS
+      port: 443
+      name: https-gateway
+      hostname: "*.cooney.site"
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: cloudflare-cert
+      allowedRoutes:
+        namespaces:
+          from: All
