@@ -1,0 +1,18 @@
+# gateway/certificate.yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gateway-certificate
+  namespace: kube-system
+spec:
+  dnsNames:
+    - "${CLOUDFLARE_DOMAIN}"
+    - "*.${CLOUDFLARE_DOMAIN}"
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: letsencrypt-staging
+  usages:
+    - digital signature
+    - key encipherment
+  secretName: cloudflare-cert
