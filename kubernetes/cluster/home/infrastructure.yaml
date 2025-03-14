@@ -34,6 +34,8 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: infra-cilium-core
   path: "./kubernetes/infrastructure/external-secrets"
   sourceRef:
     kind: GitRepository
