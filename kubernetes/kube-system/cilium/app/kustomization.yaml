@@ -14,6 +14,7 @@ resources:
 - cilium-ippools.yaml
 - cilium-hubble-ui-lb.yaml
 - cilium-announcement-policy.yaml
+- cilium-gateway.yaml
 configMapGenerator:
   - name: cilium-configmap
     namespace: kube-system
