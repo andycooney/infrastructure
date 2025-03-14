@@ -17,9 +17,9 @@ spec:
             apiTokenSecretRef:
               name: cloudflare-api-token
               key: CLOUDFLARE_API_TOKEN
-        selector:
-          dnsZones:
-            - "${CLOUDFLARE_DOMAIN}"
+        # selector:
+        #   dnsZones:
+        #     - "${CLOUDFLARE_DOMAIN}"
 
   # acme:
   #   server: https://acme-v02.api.letsencrypt.org/directory
