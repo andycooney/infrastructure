@@ -10,7 +10,7 @@ spec:
     - "*.${CLOUDFLARE_DOMAIN}"
   issuerRef:
     group: cert-manager.io
-    kind: Issuer
+    kind: ClusterIssuer
     name: letsencrypt-staging
   usages:
     - digital signature
