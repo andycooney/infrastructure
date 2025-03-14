@@ -7,4 +7,5 @@ resources:
   - ./chart.yaml
   - ./helmrelease.yaml
   - ./cloudflare-secret.yaml
+  - ./test-op-item.yaml
   # - ./prometheusrule.yaml
