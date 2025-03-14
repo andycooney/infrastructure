@@ -2,7 +2,6 @@ apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: "ingres-controller-pool"
-  namespace: kube-system
   labels:
     pool: "ingres-controller-pool"
 spec:
@@ -13,7 +12,6 @@ apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: "lb-pool"
-  namespace: kube-system
   labels:
     pool: "lb-pool"
 spec:
@@ -25,7 +23,6 @@ apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: "hubble-ui-pool"
-  namespace: kube-system
   labels:
     pool: "hubble-ui-pool"
 spec:

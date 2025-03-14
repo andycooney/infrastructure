@@ -10,7 +10,6 @@ metadata:
     # pool: "{{ ippool.hubble_ui.name }}"
     serviceType: core 
   name: hubble-ui-cilium
-  namespace: kube-system
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:

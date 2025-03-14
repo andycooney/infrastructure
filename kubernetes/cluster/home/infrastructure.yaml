@@ -1,0 +1,151 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app infra-cilium-core
+  namespace: flux-system
+spec:
+  targetNamespace: cilium
+  interval: 10m
+  retryInterval: 1m
+  timeout: 5m
+  prune: true
+  wait: true
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./kubernetes/infrastructure/cilium/core
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: &app external-secrets
+  namespace: flux-system
+spec:
+  targetNamespace: external-secrets
+  interval: 10m
+  retryInterval: 1m
+  prune: true
+  timeout: 3m
+  wait: true
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  path: "./kubernetes/infrastructure/external-secrets"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: *app
+      namespace: *ns
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: &app onepassword
+#   namespace: &ns kube-system
+# spec:
+#   dependsOn:
+#     - name: external-secrets
+#   path: "./kubernetes/kube-system/external-secrets/1password"
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
+#     namespace: flux-system
+#   healthChecks:
+#     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+#       kind: HelmRelease
+#       name: *app
+#       namespace: *ns
+#   interval: 10m
+#   retryInterval: 1m
+#   timeout: 3m
+
+
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app cert-manager
+  namespace: flux-system
+spec:
+  targetNamespace: cert-manager
+  wait: true
+  interval: 10m
+  retryInterval: 1m
+  timeout: 5m
+  prune: true
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  dependsOn:
+    - name: external-secrets
+  path: ./kubernetes/infrastructure/cert-manager/app
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app cert-manager-issuers
+  namespace: flux-system
+spec:
+  targetNamespace: cert-manager
+  wait: true
+  interval: 5m
+  retryInterval: 1m
+  timeout: 3m
+  prune: true
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  dependsOn:
+    - name: cert-manager
+  path: ./kubernetes/infrastructure/cert-manager/issuers
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  postBuild:
+    substituteFrom:
+    - kind: Secret
+      name: cloudflare-secrets
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: &app cert-manager-certificates
+  namespace: flux-system
+spec:
+  targetNamespace: cert-manager
+  wait: true
+  interval: 5m
+  retryInterval: 1m
+  timeout: 3m
+  prune: true
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  dependsOn:
+    - name: cert-manager
+    - name: cert-manager-issuers
+    # - name: kube-system-reflector
+  path: ./kubernetes/infrastructure/cert-manager/certificates
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  postBuild:
+    substituteFrom:
+    - kind: Secret
+      name: cloudflare-secrets

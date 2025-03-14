@@ -9,7 +9,6 @@ resources:
 - https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.2.1/config/crd/experimental/gateway.networking.k8s.io_referencegrants.yaml
 - https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.2.1/config/crd/standard/gateway.networking.k8s.io_grpcroutes.yaml
 - https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/experimental/gateway.networking.k8s.io_tlsroutes.yaml
-- cilium-charts.yaml
 - cilium-release.yaml
 - cilium-ippools.yaml
 - cilium-hubble-ui-lb.yaml
@@ -17,7 +16,6 @@ resources:
 # - cilium-gateway.yaml
 configMapGenerator:
   - name: cilium-configmap
-    namespace: kube-system
     files:
       - values.yaml=cilium-values.yaml
 configurations:
