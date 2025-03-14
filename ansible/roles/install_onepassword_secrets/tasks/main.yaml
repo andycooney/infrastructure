@@ -1,6 +1,6 @@
 - name: Include variables
   ansible.builtin.include_vars:
-    dir: "{{ project_path }}/ansible/group_vars"
+    dir: "{{ project_path }}/ansible/inventory/group_vars"
       
 - name: Add secrets for 1Password integration
   kubernetes.core.k8s:
