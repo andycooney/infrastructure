@@ -35,7 +35,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: infra-cilium-core
+    - name: cilium-core
   path: "./kubernetes/infrastructure/external-secrets"
   sourceRef:
     kind: GitRepository
@@ -84,7 +84,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: external-secrets
+    - name: onepassword
   path: ./kubernetes/infrastructure/cert-manager/app
   sourceRef:
     kind: GitRepository
