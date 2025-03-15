@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app infra-cilium-core
+  name: &app cilium-core
   namespace: flux-system
 spec:
   targetNamespace: cilium
@@ -44,31 +44,28 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: *app
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-# kind: Kustomization
-# metadata:
-#   name: &app onepassword
-#   namespace: &ns kube-system
-# spec:
-#   dependsOn:
-#     - name: external-secrets
-#   path: "./kubernetes/kube-system/external-secrets/1password"
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#     namespace: flux-system
-#   healthChecks:
-#     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#       kind: HelmRelease
-#       name: *app
-#       namespace: *ns
-#   interval: 10m
-#   retryInterval: 1m
-#   timeout: 3m
-
-
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: &app onepassword
+  namespace: flux-system
+spec:
+  targetNamespace: onepassword
+  interval: 10m
+  retryInterval: 1m
+  timeout: 3m
+  prune: true
+  dependsOn:
+    - name: external-secrets
+  path: "./kubernetes/infrastructure/onepassword"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: *app
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
