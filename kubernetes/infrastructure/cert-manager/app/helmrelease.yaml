@@ -26,7 +26,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: jetstack
-        namespace: *ns
   interval: 2m
   install:
     remediation:
