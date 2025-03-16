@@ -51,6 +51,7 @@ metadata:
   name: &app onepassword
   namespace: flux-system
 spec:
+  targetNamespace: onepassword
   interval: 10m
   retryInterval: 1m
   timeout: 3m
