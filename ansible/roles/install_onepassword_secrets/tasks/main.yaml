@@ -1,7 +1,15 @@
 - name: Include variables
   ansible.builtin.include_vars:
     dir: "{{ project_path }}/ansible/inventory/group_vars"
-      
+
+- name: Create onepassword namespace
+  become: false
+  kubernetes.core.k8s:
+    name: onepassword
+    api_version: v1
+    kind: Namespace
+    state: present
+
 - name: Add secrets for 1Password integration
   kubernetes.core.k8s:
     state: present
