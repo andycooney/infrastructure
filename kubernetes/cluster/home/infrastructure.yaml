@@ -27,7 +27,7 @@ metadata:
 spec:
   targetNamespace: external-secrets
   interval: 10m
-  retryInterval: 1m
+  retryInterval: 15s
   prune: true
   timeout: 3m
   wait: true
@@ -53,7 +53,7 @@ metadata:
 spec:
   targetNamespace: onepassword
   interval: 10m
-  retryInterval: 1m
+  retryInterval: 15s
   timeout: 3m
   prune: true
   dependsOn:
@@ -77,7 +77,7 @@ spec:
   targetNamespace: cert-manager
   wait: true
   interval: 10m
-  retryInterval: 1m
+  retryInterval: 15s
   timeout: 5m
   prune: true
   commonMetadata:
@@ -100,7 +100,7 @@ spec:
   targetNamespace: cert-manager
   wait: true
   interval: 5m
-  retryInterval: 1m
+  retryInterval: 15s
   timeout: 3m
   prune: true
   commonMetadata:
@@ -128,7 +128,7 @@ spec:
   targetNamespace: cert-manager
   wait: true
   interval: 5m
-  retryInterval: 1m
+  retryInterval: 15s
   timeout: 3m
   prune: true
   commonMetadata:
