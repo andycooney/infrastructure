@@ -80,6 +80,7 @@
       #     backend: envoy
       # loadBalancerIPs:
       #   enabled: true
+      namespaceOverride: "cilium"
       operator:
         replicas: 1
       # rollOutCiliumPods: true
