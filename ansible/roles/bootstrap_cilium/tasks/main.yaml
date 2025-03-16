@@ -1,11 +1,11 @@
-# - name: Create cilium-secrets namespace
-#   delegate_to: localhost
-#   become: false
-#   kubernetes.core.k8s:
-#     name: cilium-secrets
-#     api_version: v1
-#     kind: Namespace
-#     state: present
+- name: Create cilium namespace
+  delegate_to: localhost
+  become: false
+  kubernetes.core.k8s:
+    name: cilium
+    api_version: v1
+    kind: Namespace
+    state: present
 
 - name: Deploy Cilium 1.17.x
   delegate_to: localhost
