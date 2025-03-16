@@ -19,7 +19,7 @@
       type: Opaque             
       metadata:
         name: "onepassword-token"
-        namespace: "kube-system"     
+        namespace: "onepassword"     
       stringData:
         token: "{{ onepass_token }}"
 
@@ -32,6 +32,6 @@
       type: Opaque             
       metadata:
         name: "op-credentials"
-        namespace: "kube-system"     
+        namespace: "onepassword"     
       stringData:
         1passcredentialsjson: "{{ onepass_credentials }}"
