@@ -7,8 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  ref:
-    branch: master
+  ref: {}
   secretRef:
     name: flux-system
   url: https://github.com/andycooney/infrastructure.git
