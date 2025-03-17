@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - ./1password-deployment.yaml
 - ./clustersecretstore.yaml
-- ./cloudflare-secret.yaml
