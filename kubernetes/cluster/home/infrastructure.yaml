@@ -147,3 +147,4 @@ spec:
     substituteFrom:
     - kind: Secret
       name: cloudflare-secret
+      optional: true
