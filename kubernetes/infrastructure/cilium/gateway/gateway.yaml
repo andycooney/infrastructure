@@ -1,12 +1,15 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: cilium-gw
+  name: cilium-gateway
   namespace: cilium
   labels:
     pool: "ingres-controller-pool"
 spec:
   gatewayClassName: cilium
+  addresses:
+  - type: IPAddress
+    value: 172.16.1.184
   listeners:
   # - protocol: HTTP
   #   port: 80
@@ -16,9 +19,11 @@ spec:
     name: https-gateway
     hostname: "*.cooney.site"
     tls:
+      mode: Terminate
       certificateRefs:
         - kind: Secret
           name: staging-certificate
+          namespace: cert-manager
     allowedRoutes:
       namespaces:
         from: All

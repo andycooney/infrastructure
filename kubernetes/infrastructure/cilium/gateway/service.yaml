@@ -5,19 +5,19 @@ metadata:
   namespace: cilium
 spec:
   parentRefs:
-    - name: cilium-gw
+    - name: cilium-gateway
       port: 443
       namespace: cilium
   hostnames:
     - "gateway.cooney.site"
   rules:
-  - backendRefs:
+  - matches:
+      - path:
+          type: PathPrefix
+          value: /hubble
+    backendRefs:
     - name: hubble-ui
       port: 80
-    # - matches:
-    #     - path:
-    #         type: PathPrefix
-    #         value: /hubble
       # filters:
       #   - type: URLRewrite
       #     urlRewrite:
