@@ -5,14 +5,14 @@ metadata:
   name: staging-certificate
 spec:
   secretName: staging-certificate
-  secretTemplate:
-    annotations:
-      # allow replication?
-      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "networking" # Allow all namespaces
-      # automatically create replicated resources?
-      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
-      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "networking"
+  # secretTemplate:
+  #   annotations:
+  #     # allow replication?
+  #     reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+  #     reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "networking" # Allow all namespaces
+  #     # automatically create replicated resources?
+  #     reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+  #     reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "networking"
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
