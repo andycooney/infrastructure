@@ -9,13 +9,13 @@ spec:
       port: 443
       namespace: cilium
   hostnames:
-    - "gateway.cooney.site"
+    - "test.cooney.site"
   rules:
-  - matches:
-      - path:
-          type: PathPrefix
-          value: /hubble
-    backendRefs:
+  # - matches:
+  #     - path:
+  #         type: PathPrefix
+  #         value: /hubble
+  - backendRefs:
     - name: hubble-ui
       port: 80
       # filters:

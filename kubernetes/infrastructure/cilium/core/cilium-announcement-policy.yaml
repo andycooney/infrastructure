@@ -3,6 +3,9 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: core-services
 spec:
+  serviceSelector:
+    matchLabels:
+      pool: lb-pool
   nodeSelector:
     matchExpressions:
     - key: node-role.kubernetes.io/control-plane
