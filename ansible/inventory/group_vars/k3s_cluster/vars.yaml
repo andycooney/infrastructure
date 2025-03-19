@@ -61,3 +61,7 @@ ippool:
     pool:
     - start: "172.16.1.191"
       stop: "172.16.1.199"
+basic_namespaces:
+  - external-secrets
+  - flux-system
+  - network

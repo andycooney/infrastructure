@@ -1,0 +1,40 @@
+---
+- name: Create namespaces
+  delegate_to: localhost
+  become: false
+  kubernetes.core.k8s:
+    name: "{{ item }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+  loop: "{{ basic_namespaces }}"
+
+- name: Add secrets for 1Password integration
+  delegate_to: localhost
+  become: false
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: Secret
+      type: Opaque             
+      metadata:
+        name: "onepassword-token"
+        namespace: "external-secrets"
+      stringData:
+        token: "{{ onepass_token }}"
+
+- name: Add secrets for 1Password integration
+  delegate_to: localhost
+  become: false
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: Secret
+      type: Opaque             
+      metadata:
+        name: "op-credentials"
+        namespace: "external-secrets"     
+      stringData:
+        1passcredentialsjson: "{{ onepass_credentials }}"
