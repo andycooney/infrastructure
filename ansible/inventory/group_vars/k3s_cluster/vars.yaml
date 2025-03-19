@@ -8,7 +8,7 @@ onepass_credentials: "{{ lookup('community.general.onepassword', 'onepass-kubern
 onepass_token: "{{ lookup('community.general.onepassword', 'onepass-kubernetes', vault='kubernetes', field='TOKEN') }}"
 token: "{{ lookup('community.general.onepassword', 'k3s_token', vault='kubernetes') }}"
 k3s_kubectl_binary: "kubectl"
-k3s_master_taint: "{{ true if groups['agent'] | default([]) | length >= 1 else false }}"
+# k3s_master_taint: "{{ true if groups['agent'] | default([]) | length >= 1 else false }}"
 api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"
 extra_server_args: >-
   {{ '--node-taint node-role.kubernetes.io/master=true:NoSchedule' if k3s_master_taint else '' }}
@@ -65,3 +65,7 @@ basic_namespaces:
   - external-secrets
   - flux-system
   - network
+basic_crds:
+  - 'https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml'
+  - 'https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.81.0/stripped-down-crds.yaml'
+  - 'https://raw.githubusercontent.com/kubernetes-sigs/external-dns/refs/tags/v0.16.1/docs/sources/crd/crd-manifest.yaml'

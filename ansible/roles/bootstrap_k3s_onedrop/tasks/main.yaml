@@ -38,3 +38,12 @@
         namespace: "external-secrets"     
       stringData:
         1passcredentialsjson: "{{ onepass_credentials }}"
+
+- name: Install CRD Files
+  include_tasks: install_crds.yaml
+  loop: "{{ basic_crds }}"
+
+- name: Set environment variable
+  delegate_to: localhost
+  shell:
+    cmd: export ROOT_DIR="{{ project_path }}"

@@ -1,8 +1,10 @@
 ---
 spegel:
   appendMirrors: true
-  containerdSock: /run/containerd/containerd.sock
+  # containerdSock: /run/containerd/containerd.sock
+  containerdSock: /run/k3s/containerd/containerd.sock
   containerdRegistryConfigPath: /etc/cri/conf.d/hosts
+  containerdContentPath: /var/lib/rancher/k3s/agent/containerd/io.containerd.content.v1.content
 service:
   registry:
     hostPort: 29999

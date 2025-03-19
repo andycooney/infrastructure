@@ -1,6 +1,6 @@
 - name: Bootstrap onepassword secrets
   hosts: server[0]
   become: false
-  gather_facts: true
+  gather_facts: false
   roles:
-    - role: install_onepassword_secrets
+    - role: bootstrap_k3s_onedrop
