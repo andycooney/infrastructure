@@ -12,8 +12,8 @@
     state: present
 
 - name: Add secrets for 1Password integration
+  delegate_to: localhost
   kubernetes.core.k8s:
-    delegate_to: localhost
     state: present
     definition: 
       apiVersion: v1
@@ -26,8 +26,8 @@
         token: "{{ onepass_token }}"
 
 - name: Add secrets for 1Password integration
+  delegate_to: localhost
   kubernetes.core.k8s:
-    delegate_to: localhost
     state: present
     definition: 
       apiVersion: v1
