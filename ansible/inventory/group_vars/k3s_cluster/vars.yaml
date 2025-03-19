@@ -19,6 +19,11 @@ extra_server_args: >-
   --disable-network-policy
   --disable servicelb
   --disable traefik
+  {% if basic_run is defined %}
+  --disable=coredns
+  --disable=local-storage
+  --disable=metrics-server
+  {% endif %}
 extra_agent_args:
   --node-taint node.cilium.io/agent-not-ready:NoExecute
   --kubelet-arg node-status-update-frequency=5s

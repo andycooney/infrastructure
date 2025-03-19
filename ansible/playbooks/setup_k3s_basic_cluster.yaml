@@ -1,0 +1,70 @@
+---
+- name: Cluster prep
+  hosts: k3s_cluster
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Pause before trying to install packages for hosts to be fully up
+      pause:
+        seconds: 15
+
+    - name: Process prereq
+      include_role:
+        name: prereq
+
+    - name: Install additional packages
+      include_role:
+        name: install_packages
+      vars:
+        packages: "{{ k3s_packages }}"
+
+- name: Setup K3S server
+  hosts: server
+  become: true
+  tasks:
+    - name: Install server on first host and init cluster
+      include_role:
+        name: k3s_server
+      vars:
+        basic_run: true
+
+- name: Setup K3S agent
+  hosts: agent
+  become: true
+  tasks:
+    - name: Install k3s agent
+      include_role:
+        name: k3s_agent
+      vars:
+        basic_run: true
+
+
+    # - name: Install Cilium
+    #   include_role:
+    #     name: bootstrap_cilium
+
+    # - name: Pause to allow cilium startup
+    #   ansible.builtin.pause:
+    #     seconds: 30
+
+# - name: Setup Cilium LB
+#   ansible.builtin.import_playbook: setup_cilium_lb.yaml
+
+# - name: Setup K3S server
+#   hosts: server
+#   become: true
+#   roles:
+#     - role: k3s_server
+
+
+    # - name: Pause to allow cilium startup
+    #   ansible.builtin.pause:
+    #     seconds: 90
+
+# - name: Bootstrap flux and secrets for 1Password external-secrets
+#   hosts: localhost
+#   become: false
+#   gather_facts: false
+#   roles:
+#     - role: install_onepassword_secrets
+#     - role: bootstrap_flux

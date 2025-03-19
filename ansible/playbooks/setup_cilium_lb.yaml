@@ -1,5 +1,5 @@
 - hosts: server
-  gather_facts: no
+  gather_facts: false
   become: false
   run_once: true
   tasks:
