@@ -10,7 +10,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   interval: 10m
-  path: ./kubernetes/infrastructure/kube-system/cilium/app
+  path: ./kubernetes/apps/kube-system/cilium/app
   prune: true
   retryInterval: 2m
   sourceRef:
