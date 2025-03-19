@@ -6,4 +6,5 @@ namespace: cert-manager
 components:
   - ../../components/common
 resources:
+  - ./cert-manager/ns.yaml
   - ./cert-manager/ks.yaml
