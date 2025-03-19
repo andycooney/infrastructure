@@ -1,17 +1,19 @@
-- name: Include variables
-  ansible.builtin.include_vars:
-    dir: "{{ project_path }}/ansible/inventory/group_vars"
+# - name: Include variables
+#   ansible.builtin.include_vars:
+#     dir: "{{ project_path }}/ansible/inventory/group-vars"
 
 - name: Create onepassword namespace
   become: false
+  delegate_to: localhost
   kubernetes.core.k8s:
-    name: onepassword
+    name: external-secrets
     api_version: v1
     kind: Namespace
     state: present
 
 - name: Add secrets for 1Password integration
   kubernetes.core.k8s:
+    delegate_to: localhost
     state: present
     definition: 
       apiVersion: v1
@@ -19,12 +21,13 @@
       type: Opaque             
       metadata:
         name: "onepassword-token"
-        namespace: "onepassword"     
+        namespace: "external-secrets"     
       stringData:
         token: "{{ onepass_token }}"
 
 - name: Add secrets for 1Password integration
   kubernetes.core.k8s:
+    delegate_to: localhost
     state: present
     definition: 
       apiVersion: v1
@@ -32,6 +35,6 @@
       type: Opaque             
       metadata:
         name: "op-credentials"
-        namespace: "onepassword"     
+        namespace: "external-secrets"     
       stringData:
         1passcredentialsjson: "{{ onepass_credentials }}"
