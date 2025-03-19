@@ -1,22 +1,42 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app infrastructure
+  name: cluster-apps
   namespace: flux-system
 spec:
   interval: 10m
-  retryInterval: 1m
-  timeout: 5m
+  path: ./kubernetes/apps
   prune: true
-  wait: true
-  commonMetadata:
-    labels:
-      app.kubernetes.io/name: *app
+  retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./kubernetes/infrastructure
+    namespace: flux-system
+  timeout: 5m
+  wait: false
+
+
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: &app infrastructure
+#   namespace: flux-system
+# spec:
+#   interval: 10m
+#   retryInterval: 1m
+#   timeout: 5m
+#   prune: true
+#   wait: true
+#   commonMetadata:
+#     labels:
+#       app.kubernetes.io/name: *app
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
+#   path: ./kubernetes/infrastructure
 
 # ---
 # apiVersion: kustomize.toolkit.fluxcd.io/v1
