@@ -18,7 +18,7 @@ instance:
     provider: github
     pullSecret: "${TOKEN}"
     name: "${USER}"
-    interval: 1h
+    interval: 10m
   commonMetadata:
     labels:
       app.kubernetes.io/name: flux
