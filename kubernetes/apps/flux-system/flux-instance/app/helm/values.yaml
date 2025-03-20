@@ -14,10 +14,10 @@ instance:
     kind: GitRepository
     url: https://github.com/andycooney/infrastructure.git
     ref: refs/heads/main
-    path: kubernetes/flux/cluster
+    path: "${PATH}"
     provider: github
-    pullSecret: "${CLOUDFLARE_DOMAIN}"
-    name: andycooney
+    pullSecret: "${TOKEN}"
+    name: "${USER}"
     interval: 1h
   commonMetadata:
     labels:
