@@ -7,7 +7,7 @@
 
 - name: Apply CRD
   delegate_to: localhost
-  shell:
+  ansible.builtin.shell:
     cmd: kubectl apply --server-side --filename "/tmp/{{ item | basename }}"
 
 - name: Remove CRD

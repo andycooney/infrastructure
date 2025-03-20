@@ -14,10 +14,10 @@
   become: false
   kubernetes.core.k8s:
     state: present
-    definition: 
+    definition:
       apiVersion: v1
       kind: Secret
-      type: Opaque             
+      type: Opaque
       metadata:
         name: "onepassword-token"
         namespace: "external-secrets"
@@ -29,21 +29,16 @@
   become: false
   kubernetes.core.k8s:
     state: present
-    definition: 
+    definition:
       apiVersion: v1
       kind: Secret
-      type: Opaque             
+      type: Opaque
       metadata:
         name: "op-credentials"
-        namespace: "external-secrets"     
+        namespace: "external-secrets"
       stringData:
         1passcredentialsjson: "{{ onepass_credentials }}"
 
 - name: Install CRD Files
-  include_tasks: install_crds.yaml
+  ansible.builtin.include_tasks: install_crds.yaml
   loop: "{{ basic_crds }}"
-
-- name: Set environment variable
-  delegate_to: localhost
-  shell:
-    cmd: export ROOT_DIR="{{ project_path }}"

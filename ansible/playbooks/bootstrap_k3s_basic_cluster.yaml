@@ -5,4 +5,4 @@
   tasks:
     - name: Bootstrap cluster
       include_role:
-        name: bootstrap_k3s_basic
+        name: bootstrap_k3s_basic_cluster
