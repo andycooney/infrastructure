@@ -68,7 +68,7 @@ releases:
   - name: onepassword
     namespace: external-secrets
     atomic: true
-    chart: https://1password.github.io/connect-helm-charts
+    chart: 1password/connect
     version: v1.17.0
     values: ['{{ requiredEnv "ROOT_DIR" }}/kubernetes/apps/external-secrets/onepassword/app/helm/values.yaml']
     hooks:
