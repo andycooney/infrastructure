@@ -1,0 +1,9 @@
+---    # namespace: onepassword
+connect:
+  credentialsName: op-credentials
+  credentialsKey: 1passcredentialsjson
+# operator:
+#   create: true
+#   credentialsName: op-credentials
+#   credentialsKey: 1passcredentialsjson
+serviceType: ClusterIP
