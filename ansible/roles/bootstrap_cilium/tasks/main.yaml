@@ -107,7 +107,7 @@
       # tls:
       #   secretsNamespace:
       #     create: false
- 
+
 - name: Wait for Cilium resources
   ansible.builtin.command: >-
     {% if item.type == 'daemonset' %}
