@@ -1,0 +1,8 @@
+- name: Bootstrap basic k3s cluster
+  hosts: server[0]
+  become: false
+  gather_facts: false
+  tasks:
+    - name: Bootstrap cluster
+      include_role:
+        name: bootstrap_k3s_basic

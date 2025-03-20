@@ -1,6 +1,0 @@
-- name: Bootstrap onepassword secrets
-  hosts: server[0]
-  become: false
-  gather_facts: false
-  roles:
-    - role: bootstrap_k3s_onedrop
