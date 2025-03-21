@@ -9,7 +9,7 @@ spec:
     localASN: 64514
     peers:
     - name: "peer-64513-udm"
-      localPort: 179
+      # localPort: 179
       peerASN: 64513
       peerAddress: 172.16.1.1/32
       peerConfigRef:
