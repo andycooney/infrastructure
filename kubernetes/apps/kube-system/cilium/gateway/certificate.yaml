@@ -3,11 +3,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: devbu-io
+  name: staging-wildcard
 spec:
-  secretName: devbu-io-tls
+  secretName: cooney-site-staging-tls
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-staging
     kind: ClusterIssuer
-  commonName: devbu.io
-  dnsNames: ["devbu.io", "*.devbu.io"]
+  commonName: cooney.site
+  dnsNames: ["cooney.site", "*.cooney.site"]

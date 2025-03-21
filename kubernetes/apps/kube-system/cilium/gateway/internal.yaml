@@ -5,14 +5,14 @@ kind: Gateway
 metadata:
   name: internal
   annotations:
-    external-dns.alpha.kubernetes.io/target: &hostname internal.devbu.io
+    external-dns.alpha.kubernetes.io/target: &hostname internal.cooney.site
 spec:
   gatewayClassName: cilium
   addresses:
     - type: IPAddress
-      value: 192.168.42.121
+      value: 172.16.42.190
     - type: IPAddress
-      value: ::ffff:192.168.42.121
+      value: ::ffff:172.16.42.190
   infrastructure:
     annotations:
       external-dns.alpha.kubernetes.io/hostname: *hostname
@@ -20,18 +20,18 @@ spec:
     - name: http
       protocol: HTTP
       port: 80
-      hostname: "*.devbu.io"
+      hostname: "*.cooney.site"
       allowedRoutes:
         namespaces:
           from: Same
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: "*.devbu.io"
+      hostname: "*.cooney.site"
       allowedRoutes:
         namespaces:
           from: All
       tls:
         certificateRefs:
           - kind: Secret
-            name: devbu-io-tls
+            name: cooney-site-staging-tls
