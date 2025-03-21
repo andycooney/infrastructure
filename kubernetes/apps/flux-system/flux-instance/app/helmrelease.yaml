@@ -36,3 +36,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: flux-instance-values
+    - kind: ConfigMap
+      name: sync-config
