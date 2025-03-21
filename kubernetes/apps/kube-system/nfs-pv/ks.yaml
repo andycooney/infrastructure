@@ -5,7 +5,7 @@ metadata:
   name: &app nfs-pv
   namespace: &ns kube-system
 spec:
-  path: ./kubernetes/kube-system/nfs-pv/pvs
+  path: ../kubernetes/apps/kube-system/nfs-pv/pvs
   sourceRef:
     kind: GitRepository
     name: flux-system

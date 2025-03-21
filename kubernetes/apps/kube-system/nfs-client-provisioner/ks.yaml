@@ -5,7 +5,7 @@ metadata:
   name: &app nfs-client-provisioner
   namespace: &ns kube-system
 spec:
-  path: ./kubernetes/kube-system/nfs-client-provisioner/app
+  path: ./kubernetes/apps/kube-system/nfs-client-provisioner/app
   sourceRef:
     kind: GitRepository
     name: flux-system
