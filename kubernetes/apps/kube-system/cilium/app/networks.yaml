@@ -55,9 +55,13 @@ metadata:
   name: pod-ip-pool-advert
   labels:
     advertise: bgp
-spec:
   advertisements:
-    - advertisementType: "CiliumPodIPPool"
+    - advertisementType: "Service"
+      service:
+        addresses:          # <-- specify the service types to advertise
+          - ClusterIP
+          - ExternalIP
+          - LoadBalancerIP
       selector:
         matchExpressions:
         - key: thisFakeSelector
