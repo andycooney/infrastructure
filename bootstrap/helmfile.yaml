@@ -1,6 +1,8 @@
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/helmfile
 
+# Must install helm secrets "helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.3"
+
 helmDefaults:
   cleanupOnFail: true
   wait: true
@@ -70,7 +72,17 @@ releases:
     atomic: true
     chart: 1password/connect
     version: v1.17.0
-    values: ['{{ requiredEnv "ROOT_DIR" }}/kubernetes/apps/external-secrets/onepassword/app/helm/values.yaml']
+    values:
+      - '{{ requiredEnv "ROOT_DIR" }}/kubernetes/apps/external-secrets/onepassword/app/helm/values.yaml'
+      - sync:
+          kind: GitRepository
+          url: https://github.com/andycooney/infrastructure.git
+          ref: refs/heads/main
+          path: ref+op://kubernetes/github/PATH
+          provider: github
+          pullSecret: ref+op://kubernetes/github/TOKEN
+          name: ref+op://kubernetes/github/USER
+          interval: 10m
     hooks:
       - # Apply 1Password configuration
         events: ['postsync']
@@ -81,6 +93,16 @@ releases:
           - --server-side
           - --field-manager=kustomize-controller
           - --filename={{ requiredEnv "ROOT_DIR" }}/kubernetes/apps/external-secrets/onepassword/app/clustersecretstore.yaml
+        showlogs: true
+      - # Apply external secrets
+        events: ['postsync']
+        command: kubectl
+        args:
+          - apply
+          - --namespace=flux-system
+          - --server-side
+          - --field-manager=kustomize-controller
+          - --filename={{ requiredEnv "ROOT_DIR" }}/kubernetes/apps/flux-system/flux-instance/app/externalsecret-github.yaml
         showlogs: true
     needs: ['external-secrets/external-secrets']
 
