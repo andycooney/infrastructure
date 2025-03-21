@@ -55,6 +55,7 @@ metadata:
   name: pod-ip-pool-advert
   labels:
     advertise: bgp
+spec:
   advertisements:
     - advertisementType: "Service"
       service:
