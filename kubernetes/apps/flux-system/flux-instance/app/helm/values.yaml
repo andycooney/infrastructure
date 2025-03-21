@@ -13,7 +13,7 @@ instance:
   sync:
     kind: GitRepository
     url: https://github.com/andycooney/infrastructure.git
-    ref: refs/heads/main
+    ref: refs/heads/master
     path: "kubernetes/flux/cluster"
     interval: 5m
   commonMetadata:
