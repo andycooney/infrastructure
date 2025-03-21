@@ -44,19 +44,19 @@ spec:
   advertisements:
     - advertisementType: "PodCIDR"
 
----
-apiVersion: cilium.io/v2
-kind: CiliumBGPAdvertisement
-metadata:
-  name: pod-ip-pool-advert
-  labels:
-    advertise: bgp
-spec:
-  advertisements:
-    - advertisementType: "CiliumPodIPPool"
-      selector:
-        matchExpressions:
-        - key: thisFakeSelector
-          operator: NotIn
-          values:
-            - 'never-used-value'
+# ---
+# apiVersion: cilium.io/v2
+# kind: CiliumBGPAdvertisement
+# metadata:
+#   name: pod-ip-pool-advert
+#   labels:
+#     advertise: bgp
+# spec:
+#   advertisements:
+#     - advertisementType: "CiliumPodIPPool"
+#       selector:
+#         matchExpressions:
+#         - key: thisFakeSelector
+#           operator: NotIn
+#           values:
+#             - 'never-used-value'
