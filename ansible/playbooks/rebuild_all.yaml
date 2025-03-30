@@ -1,13 +1,17 @@
-- import_playbook: remove_kubernetes_nodes.yaml
-- import_playbook: build_kubernetes_nodes.yaml
+- name: Remove kubernetes nodes
+  import_playbook: remove_kubernetes_nodes.yaml
+
+- name: Build kubernetes nodes
+  import_playbook: build_kubernetes_nodes.yaml
 
 - name: Pause before trying to install packages
   hosts: localhost
   become: false
   gather_facts: false
   tasks:
-    - name: Wait
-      pause:
+    - name: Wait for 30
+      ansible.builtin.pause:
         seconds: 30
 
-- import_playbook: setup_k3s_cluster.yaml
+- name: Build Basic k3s cluster
+  import_playbook: build_k3s_basic_cluster.yaml

@@ -1,2 +1,5 @@
-- import_playbook: prepare_k3s_basic_cluster.yaml
-- import_playbook: bootstrap_k3s_basic_cluster.yaml
+- name: Prepare k3s basic cluster
+  import_playbook: prepare_k3s_basic_cluster.yaml
+
+- name: Bootstrap k3s basic cluster
+  import_playbook: bootstrap_k3s_basic_cluster.yaml

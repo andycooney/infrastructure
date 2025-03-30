@@ -1,23 +1,30 @@
 - name: Download images and create cloud-init files
   hosts: pvenodes
   become: true
-  roles:
-    - role: install_packages
-      packages: "{{ proxmox_packages }}"
-    - download_cloud_init_images
-    - create_user_files
+  tasks:
+    - name: Install packages for proxmox
+      ansible.builtin.include_role:
+        name: install_packages
+      vars:
+        install_packages_list: "{{ proxmox_packages }}"
+    - name: Download cloudinit images
+      ansible.builtin.include_role:
+        name: download_cloud_init_images
+    - name: Create user files
+      ansible.builtin.include_role:
+        name: create_user_files
 
 - name: Create VMs
   hosts: pvenodes[0]
   become: false
   tasks:
     - name: Create VMs
-      include_role:
+      ansible.builtin.include_role:
         name: create_vms
 
     - name: Wait before cleaning up cloud init files
       delegate_to: localhost
-      pause:
+      ansible.builtin.pause:
         seconds: 15
 
 - name: Celanup cloud-init files
@@ -25,10 +32,10 @@
   become: true
   tasks:
     - name: Clean up files
-      include_role:
+      ansible.builtin.include_role:
         name: delete_k3s_node_cloud_init_files
 
     - name: Wait for VMs to start
       delegate_to: localhost
-      pause:
+      ansible.builtin.pause:
         seconds: 30

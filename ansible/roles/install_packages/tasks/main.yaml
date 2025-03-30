@@ -1,7 +1,7 @@
 - name: Install required packages
   ansible.builtin.package:
-    name: "{{ packages }}"
-    state: latest
+    name: "{{ install_packages_list }}"
+    # state: latest
     autoclean: true
     autoremove: true
     update_cache: true
