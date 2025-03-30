@@ -8,11 +8,11 @@ metadata:
     external-dns.alpha.kubernetes.io/target: &hostname internal.cooney.site
 spec:
   gatewayClassName: cilium
-  addresses:
-    - type: IPAddress
-      value: 172.16.42.190
-    - type: IPAddress
-      value: ::ffff:172.16.42.190
+  # addresses:
+  #   - type: IPAddress
+  #     value: 172.16.42.190
+  #   - type: IPAddress
+  #     value: ::ffff:172.16.42.190
   # infrastructure:
   #   annotations:
   #     external-dns.alpha.kubernetes.io/hostname: *hostname
