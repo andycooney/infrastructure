@@ -54,7 +54,7 @@ kind: CiliumLoadBalancerIPPool
 metadata:
   name: dev-core-lb-ip-pool
 spec:
-  allowFirstLastIPs: false
+  allowFirstLastIPs: "no"
   blocks:
     - cidr: 172.16.42.0/24
   serviceSelector:
