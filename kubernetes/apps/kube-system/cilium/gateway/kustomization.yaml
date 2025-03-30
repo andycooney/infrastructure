@@ -14,4 +14,4 @@ resources:
   # - ./internal.yaml
   # - ./redirect.yaml
   # - ./pushsecret.yaml
-  - ./gateway.yaml
+  # - ./gateway.yaml
