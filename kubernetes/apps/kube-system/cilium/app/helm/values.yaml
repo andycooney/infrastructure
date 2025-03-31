@@ -73,7 +73,7 @@ ipam:
   #   clusterPoolIPv4MaskSize: 24
 # ipv4:
 #   enabled: true
-ipv4NativeRoutingCIDR: 10.244.0.0/16
+ipv4NativeRoutingCIDR: 10.42.0.0/16
 # ipv6:
 #   enabled: true
 k8sServiceHost: 172.16.1.171
@@ -96,7 +96,7 @@ operator:
     enabled: true
     serviceMonitor:
       enabled: true
-  replicas: 2
+  replicas: 1
   rollOutPods: true
 prometheus:
   enabled: true

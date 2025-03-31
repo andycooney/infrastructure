@@ -25,8 +25,8 @@
     - name: Install server on first host and init cluster
       ansible.builtin.include_role:
         name: k3s_server
-      # vars:
-      #   basic_run: true
+      vars:
+        k3s_server_basic_run: true
 
 - name: Setup K3S agent
   hosts: agent
@@ -35,5 +35,3 @@
     - name: Install k3s agent
       ansible.builtin.include_role:
         name: k3s_agent
-      # vars:
-      #   basic_run: true

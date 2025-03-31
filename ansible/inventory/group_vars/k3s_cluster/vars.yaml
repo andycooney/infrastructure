@@ -20,7 +20,7 @@ extra_server_args: >-
   --disable-network-policy
   --disable servicelb
   --disable traefik
-  {% if basic_run is defined %}
+  {% if k3s_server_basic_run is defined %}
   --disable=coredns
   --disable=local-storage
   --disable=metrics-server
