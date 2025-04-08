@@ -8,12 +8,6 @@ components:
 resources:
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
-  # - ./csi-driver-nfs/ks.yaml
-  # - ./descheduler/ks.yaml
-  # - ./intel-device-plugin-operator/ks.yaml
   - ./metrics-server/ks.yaml
-  # - ./snapshot-controller/ks.yaml
-  # - ./reloader/ks.yaml
+  - ./reloader/ks.yaml
   - ./spegel/ks.yaml
-  - ./nfs-client-provisioner/ks.yaml
-  - ./nfs-pv/ks.yaml

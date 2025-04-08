@@ -1,15 +1,11 @@
 ---
-spegel:
-  appendMirrors: true
-  # containerdSock: /run/containerd/containerd.sock
-  containerdSock: /run/k3s/containerd/containerd.sock
-  # containerdRegistryConfigPath: /etc/cri/conf.d/hosts
-  containerdRegistryConfigPath: /var/lib/rancher/k3s/agent/etc/containerd/certs.d
-  containerdContentPath: /var/lib/rancher/k3s/agent/containerd/io.containerd.content.v1.content
+grafanaDashboard:
+  enabled: true
 service:
   registry:
     hostPort: 29999
 serviceMonitor:
   enabled: true
-grafanaDashboard:
-  enabled: true
+spegel:
+  containerdSock: /run/containerd/containerd.sock
+  containerdRegistryConfigPath: /etc/cri/conf.d/hosts
