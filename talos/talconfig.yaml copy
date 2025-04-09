@@ -21,6 +21,7 @@ cniConfig:
 
 nodes:
   - hostname: "talos01"
+    ipAddress: ""
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
@@ -29,7 +30,9 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "bc:24:11:56:89:8a"
-        dhcp: true
+        dhcp: false
+        addresses:
+          - "/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.1.1"
@@ -37,6 +40,7 @@ nodes:
         vip:
           ip: "172.16.1.180"
   - hostname: "talos02"
+    ipAddress: ""
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
@@ -45,7 +49,9 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "bc:24:11:b5:69:e2"
-        dhcp: true
+        dhcp: false
+        addresses:
+          - "/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.1.1"
@@ -53,6 +59,7 @@ nodes:
         vip:
           ip: "172.16.1.180"
   - hostname: "talos03"
+    ipAddress: ""
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
@@ -61,7 +68,9 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "bc:24:11:8c:a3:d0"
-        dhcp: true
+        dhcp: false
+        addresses:
+          - "/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.1.1"
@@ -69,6 +78,7 @@ nodes:
         vip:
           ip: "172.16.1.180"
   - hostname: "talos04"
+    ipAddress: ""
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
@@ -77,12 +87,15 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "bc:24:11:05:3d:4e"
-        dhcp: true
+        dhcp: false
+        addresses:
+          - "/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.1.1"
         mtu: 1500
   - hostname: "talos05"
+    ipAddress: ""
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
@@ -91,7 +104,9 @@ nodes:
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "bc:24:11:80:51:c1"
-        dhcp: true
+        dhcp: false
+        addresses:
+          - "/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.1.1"

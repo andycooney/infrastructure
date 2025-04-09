@@ -24,9 +24,7 @@ cniConfig:
 nodes:
   #% for item in nodes %#
   - hostname: "#{ item.name }#"
-    #% if item.address %#
     ipAddress: "#{ item.address }#"
-    #% endif %#
     #% if item.disk.startswith('/') %#
     installDisk: "#{ item.disk }#"
     #% else %#
@@ -54,13 +52,9 @@ nodes:
               ip: "#{ cluster_api_addr }#"
             #% endif %#
         #% else %#
-        #% if item.address %#
         dhcp: false
         addresses:
           - "#{ item.address }#/#{ node_cidr.split('/') | last }#"
-        #% else %#
-        dhcp: true
-        #% endif %#
         routes:
           - network: "0.0.0.0/0"
             gateway: "#{ node_default_gateway }#"

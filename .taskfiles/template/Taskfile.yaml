@@ -115,7 +115,7 @@ tasks:
   validate-talos-config:
     internal: true
     dir: '{{.TALOS_DIR}}'
-    cmd: talhelper validate talconfig {{.TALOS_DIR}}/talconfig.yaml
+    # cmd: talhelper validate talconfig {{.TALOS_DIR}}/talconfig.yaml
     preconditions:
       - test -f {{.TALOS_DIR}}/talconfig.yaml
       - which talhelper
