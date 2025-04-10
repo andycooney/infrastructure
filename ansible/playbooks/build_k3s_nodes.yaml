@@ -20,12 +20,7 @@
   tasks:
     - name: Create VMs
       ansible.builtin.include_role:
-        name: create_vms
-
-    - name: Wait before cleaning up cloud init files
-      delegate_to: localhost
-      ansible.builtin.pause:
-        seconds: 15
+        name: build_k3s_vms
 
 - name: Celanup cloud-init files
   hosts: pvenodes
@@ -34,8 +29,3 @@
     - name: Clean up files
       ansible.builtin.include_role:
         name: delete_k3s_node_cloud_init_files
-
-    - name: Wait for VMs to start
-      delegate_to: localhost
-      ansible.builtin.pause:
-        seconds: 30

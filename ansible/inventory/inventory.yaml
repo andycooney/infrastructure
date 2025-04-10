@@ -15,3 +15,14 @@ k3s_cluster:
       hosts:
         kube04.cooney.site:
         kube05.cooney.site:
+talos_cluster:
+  children:
+    talos_server:
+      hosts:
+        talos01.cooney.site:
+        talos02.cooney.site:
+        talos03.cooney.site:
+    talos_agent:
+      hosts:
+        talos04.cooney.site:
+        talos05.cooney.site:

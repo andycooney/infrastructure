@@ -1,0 +1,60 @@
+- name: Create VMs
+  community.general.proxmox_kvm:
+    api_user: "{{ proxmox_user }}"
+    api_token_id: "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    api_host: "{{ proxmox_host }}"
+    balloon: 0
+    # bios: ovmf
+    boot: order=scsi0;ide2;net0
+    cores: "{{ item.cores }}"
+    cpu: "host"
+    # efidisk0:
+    #   storage: "{{ talos_storage }}"
+    #   format: raw
+    #   efitype: 2m
+    #   pre_enrolled_keys: false
+    ide:
+      ide2: "local:iso/{{ talos_image }},media=cdrom"
+    ipconfig:
+      ipconfig0: "ip=dhcp"
+    memory: "{{ item.memory }}"
+    name: "{{ item.name }}"
+    nameservers: "{{ nameservers }}"
+    net: '{"net0":"virtio={{ item.mac_address }},bridge={{ linux_bridge }}"}'
+    node: "{{ item.node }}"
+    onboot: "no"
+    ostype: "l26"
+    scsi:
+      scsi0: "pool:32,format=raw"
+    scsihw: virtio-scsi-single
+    serial: '{"serial0":"socket"}'
+    sockets: 1
+    timeout: 700
+    # tpmstate0:
+    #   storage: "{{ talos_storage }}"
+    #   version: "2.0"
+    # vga: serial0
+    vmid: "{{ item.vmid }}"
+  loop: "{{ talosnodes }}"
+  when: 'item.state == "new"'
+  no_log: false
+
+# Start VMs
+- name: Start VMs
+  community.general.proxmox_kvm:
+    api_user: "{{ proxmox_user }}"
+    api_token_id: "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    api_host: "{{ proxmox_host }}"
+    node: "{{ item.node }}"
+    vmid: "{{ item.vmid }}"
+    state: "started"
+  loop: "{{ talosnodes }}"
+  when:
+    - 'item.state == "new"'
+  no_log: true
+
+- name: Pause to wait for hosts to come up
+  ansible.builtin.pause:
+    seconds: 30

@@ -1,2 +1,0 @@
-- import_playbook: remove_kubernetes_nodes.yaml
-- import_playbook: build_kubernetes_nodes.yaml

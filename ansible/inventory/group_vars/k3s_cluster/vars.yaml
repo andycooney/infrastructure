@@ -31,6 +31,7 @@ extra_agent_args:
 systemd_dir: /etc/systemd/system
 k3s_packages:
   - nfs-common
+  - policycoreutils
 cilium:
   version: 1.17.x
   interface: "eth0"

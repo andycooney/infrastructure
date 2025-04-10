@@ -1,0 +1,5 @@
+- name: Remove talos nodes
+  import_playbook: delete_talos_nodes.yaml
+
+- name: Build talos nodes
+  import_playbook: build_talos_nodes.yaml

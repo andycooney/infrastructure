@@ -76,3 +76,39 @@ k3snodes:
 proxmox_packages:
   - python3-proxmoxer
   - python3-requests
+talos_storage: pool
+talos_image: talos-nocloud-amd64.iso
+talosnodes:
+  - name: talos01
+    vmid: 701
+    node: pve01
+    image_file: "{{ talos_image }}"
+    cores: 2
+    memory: 2048
+    ipv4mode: static
+    ipv4_address: 172.16.1.171/24
+    ipv4_gateway: 172.16.1.1
+    mac_address: bc:24:11:56:89:8a
+    state: new
+  - name: talos02
+    vmid: 702
+    node: pve02
+    image_file: "{{ talos_image }}"
+    cores: 2
+    memory: 2048
+    ipv4mode: static
+    ipv4_address: 172.16.1.172/24
+    ipv4_gateway: 172.16.1.1
+    mac_address: bc:24:11:b5:69:e2
+    state: new
+  - name: talos03
+    vmid: 703
+    node: pve03
+    image_file: "{{ talos_image }}"
+    cores: 2
+    memory: 2048
+    ipv4mode: static
+    ipv4_address: 172.16.1.173/24
+    ipv4_gateway: 172.16.1.1
+    mac_address: bc:24:11:8c:a3:d0
+    state: new

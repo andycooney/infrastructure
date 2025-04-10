@@ -1,0 +1,7 @@
+- name: Build Talos VMs
+  hosts: pvenodes[0]
+  become: false
+  tasks:
+    - name: Build VMs
+      ansible.builtin.include_role:
+        name: build_talos_vms

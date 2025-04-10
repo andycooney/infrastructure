@@ -1,5 +1,0 @@
-- hosts: server[0]
-  become: false
-  gather_facts: false
-  roles:
-    - install_cilium

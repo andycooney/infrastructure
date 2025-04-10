@@ -5,4 +5,4 @@
   tasks:
     - name: Bootstrap cluster
       ansible.builtin.include_role:
-        name: bootstrap_k3s_basic_cluster
+        name: bootstrap_k3s_cluster

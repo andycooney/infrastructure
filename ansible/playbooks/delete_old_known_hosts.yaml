@@ -1,8 +1,0 @@
-- name: Delete known hosts entries
-  hosts: localhost
-  become: false
-  gather_facts: false
-  tasks:
-    - name: Delete entries from known_hosts
-      ansible.builtin.include_role:
-        name: delete_known_hosts

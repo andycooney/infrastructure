@@ -1,0 +1,10 @@
+- name: Delete Talos VMs
+  hosts: pvenodes[0]
+  become: false
+  gather_facts: false
+  vars:
+    vm_list: "{{ k3snodes }}"
+  tasks:
+    - name: Delete VM
+      ansible.builtin.include_role:
+        name: delete_proxmox_vm

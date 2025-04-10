@@ -4,19 +4,15 @@
   gather_facts: true
   become: true
   tasks:
-    - name: Pause before trying to install packages for hosts to be fully up
-      ansible.builtin.pause:
-        seconds: 15
-
-    - name: Process prereq
-      ansible.builtin.include_role:
-        name: prereq
-
     - name: Install additional packages
       ansible.builtin.include_role:
         name: install_packages
       vars:
         install_packages_list: "{{ k3s_packages }}"
+
+    - name: Process prereq
+      ansible.builtin.include_role:
+        name: prereq
 
 - name: Setup K3S server
   hosts: server

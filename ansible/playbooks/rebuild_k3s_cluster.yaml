@@ -1,0 +1,5 @@
+- name: Remove kubernetes nodes
+  import_playbook: delete_k3s_nodes.yaml
+
+- name: Build Basic k3s cluster
+  import_playbook: build_k3s_cluster.yaml
