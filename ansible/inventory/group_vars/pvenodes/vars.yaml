@@ -132,5 +132,5 @@ talosnodes:
     ipv4mode: static
     ipv4_address: 172.16.1.185/24
     ipv4_gateway: 172.16.1.1
-    mac_address: bc:24:11:8c:a3:d0
+    mac_address: bc:24:11:80:51:c1
     state: new
