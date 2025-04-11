@@ -86,7 +86,7 @@ talosnodes:
     cores: 2
     memory: 2048
     ipv4mode: static
-    ipv4_address: 172.16.1.171/24
+    ipv4_address: 172.16.1.181/24
     ipv4_gateway: 172.16.1.1
     mac_address: bc:24:11:56:89:8a
     state: new
@@ -97,7 +97,7 @@ talosnodes:
     cores: 2
     memory: 2048
     ipv4mode: static
-    ipv4_address: 172.16.1.172/24
+    ipv4_address: 172.16.1.182/24
     ipv4_gateway: 172.16.1.1
     mac_address: bc:24:11:b5:69:e2
     state: new
@@ -108,7 +108,29 @@ talosnodes:
     cores: 2
     memory: 2048
     ipv4mode: static
-    ipv4_address: 172.16.1.173/24
+    ipv4_address: 172.16.1.183/24
+    ipv4_gateway: 172.16.1.1
+    mac_address: bc:24:11:8c:a3:d0
+    state: new
+  - name: talos04
+    vmid: 704
+    node: pve01
+    image_file: "{{ talos_image }}"
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.184/24
+    ipv4_gateway: 172.16.1.1
+    mac_address: bc:24:11:05:3d:4e
+    state: new
+  - name: talos05
+    vmid: 705
+    node: pve03
+    image_file: "{{ talos_image }}"
+    cores: 2
+    memory: 4096
+    ipv4mode: static
+    ipv4_address: 172.16.1.185/24
     ipv4_gateway: 172.16.1.1
     mac_address: bc:24:11:8c:a3:d0
     state: new
